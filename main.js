@@ -1,13 +1,11 @@
-// main.js
 import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
-import { GLTFLoader } from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js?module';
+import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js?module';
 
-// DOM
 const hero   = document.getElementById('hero');
 const canvas = document.getElementById('hero-canvas');
 
-// GLBパス（絶対URL化して404や相対ずれを防止）
+// GLBパス
 const glbRaw = hero?.dataset.glb || './assets/antenna_car_model_v1.glb';
 const glbURL = new URL(glbRaw, window.location.href).href;
 
