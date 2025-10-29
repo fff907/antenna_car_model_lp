@@ -1,1 +1,114 @@
-
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>斜め区切りレイアウト</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    section {
+        position: relative;
+        padding: 60px 20px;
+        text-align: center;
+    }
+    .hero {
+        background-color: #4A7CD8;
+        color: white;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+    .hero h1 {
+        font-size: 2.5em;
+        margin: 0;
+    }
+    .problem {
+        background-color: white;
+        color: #333;
+    }
+    .service {
+        background-color: #F7F9FC;
+        color: #333;
+    }
+    .pricing {
+        background-color: white;
+        color: #333;
+    }
+    .cta {
+        background-color: #4A7CD8;
+        color: white;
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+    }
+    .cta h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    .cta-button {
+        display: inline-block;
+        background-color: white;
+        color: #4A7CD8;
+        font-weight: bold;
+        padding: 15px 30px;
+        border-radius: 8px;
+        text-decoration: none;
+        position: relative;
+        font-size: 1.2em;
+    }
+    .cta-button .tag {
+        position: absolute;
+        top: -15px;
+        left: -15px;
+        background-color: #E53935;
+        color: white;
+        font-size: 0.8em;
+        padding: 5px 10px;
+        border-radius: 4px;
+    }
+    footer {
+        background-color: #2C2C2C;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 1.8em;
+        }
+        .cta h2 {
+            font-size: 1.5em;
+        }
+        .cta-button {
+            display: block;
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
+</style>
+</head>
+<body>
+    <section class="hero">
+        <h1>災害時の通信確保を全国対応でサポート</h1>
+    </section>
+    <section class="problem">
+        <h2>こんな悩みがある / こう解決する</h2>
+    </section>
+    <section class="service">
+        <h2>サービス紹介</h2>
+    </section>
+    <section class="pricing">
+        <h2>料金</h2>
+    </section>
+    <section class="cta">
+        <h2>今すぐ衛星通信車を手配</h2>
+        #
+            <span class="tag">緊急対応</span>
+            今すぐ依頼する
+        </a>
+    </section>
+    <footer>
+        フッター情報
+    </footer>
+</body>
+</html>
