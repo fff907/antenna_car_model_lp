@@ -1,65 +1,70 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>衛星モバイル伝送出張サービス</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-    .clip-hero {
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    }
-    .clip-cta {
-        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
-    }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>衛星モバイル伝送出張サービス</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .clip-hero { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    .clip-cta  { clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); }
+  </style>
 </head>
-<body class="font-sans">
+<body class="font-sans text-gray-900 antialiased">
 
-    <!-- HERO -->
-    <section class="clip-hero bg-[#4A7CD8] text-white flex items-center justify-center h-[800px]">
-        <h1 class="text-4xl md:text-6xl font-bold text-center">
-            災害時の通信確保をサポート
-        </h1>
-    </section>
+  <!-- HERO -->
+  <section class="clip-hero bg-[#4A7CD8] text-white flex items-center justify-center min-h-[70vh] md:min-h-[80vh] px-6">
+    <h1 class="text-4xl md:text-6xl font-bold text-center">
+      災害時の通信確保をサポート
+    </h1>
+  </section>
 
-    <!-- Problem -->
-    <section class="bg-white text-gray-800 flex items-center justify-center h-[500px]">
-        <h2 class="text-3xl font-semibold">こんな悩みがある / こう解決する</h2>
-    </section>
+  <!-- Problem -->
+  <section class="bg-white text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
+    <h2 class="text-3xl font-semibold text-center">こんな悩みがある / こう解決する</h2>
+  </section>
 
-    <!-- Service -->
-    <section class="bg-[#F7F9FC] text-gray-800 flex items-center justify-center h-[500px]">
-        <h2 class="text-3xl font-semibold">サービス紹介</h2>
-    </section>
+  <!-- Service -->
+  <section class="bg-[#F7F9FC] text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
+    <h2 class="text-3xl font-semibold text-center">サービス紹介</h2>
+  </section>
 
-    <!-- Pricing -->
-    <section class="bg-white text-gray-800 flex items-center justify-center h-[500px]">
-        <h2 class="text-3xl font-semibold">料金</h2>
-    </section>
+  <!-- Pricing -->
+  <section class="bg-white text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
+    <h2 class="text-3xl font-semibold text-center">料金</h2>
+  </section>
 
-    <!-- CTA -->
-    <section class="clip-cta bg-[#4A7CD8] text-white flex flex-col items-center justify-center h-[500px]">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">今すぐ衛星通信車を手配</h2>
-        <a>
-            <span class="absolute -top-4 -left-4 bg-red-600 text-white text-xs px-3 py-1 rounded">
-                緊急対応
-            </span>
-            <button class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 transition hover:scale-110">
-                <span>今すぐ依頼する</span>
-                <div class="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)]
-                group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
-                    <div class="relative h-full w-8 bg-white/20"></div>
-                </div>
-            </button>
-        </button>
-        </a>
-    </section>
+  <!-- CTA -->
+  <section class="clip-cta bg-[#4A7CD8] text-white flex flex-col items-center justify-center py-20 md:py-28 px-6">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">今すぐ衛星通信車を手配</h2>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white text-center py-6">
-        フッター情報
-    </footer>
-    
+    <div class="relative">
+      <!-- バッジ -->
+      <span class="absolute -top-4 -left-4 bg-red-600 text-white text-xs px-3 py-1 rounded shadow">
+        緊急対応
+      </span>
+
+      <!-- ボタン -->
+      <a href="#contact"
+         aria-label="今すぐ依頼する"
+         class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md
+                bg-red-600 px-7 font-semibold text-white shadow transition
+                hover:scale-[1.03] hover:bg-red-700 active:bg-red-800
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-300">
+        <span>今すぐ依頼する</span>
+        <!-- 流れるハイライト -->
+        <div class="pointer-events-none absolute inset-0 flex h-full w-full justify-center
+                    [transform:skew(-12deg)_translateX(-100%)]
+                    group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
+          <div class="relative h-full w-8 bg-white/20"></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center py-6 px-6">
+    フッター情報
+  </footer>
 </body>
 </html>
