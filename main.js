@@ -1,18 +1,12 @@
-// main.js (ESM 安定版)
-import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
-import { GLTFLoader } from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
-
-// DOM
 const hero     = document.getElementById('hero');
 const canvas   = document.getElementById('hero-canvas');
 const dragHint = document.getElementById('drag-hint');
 
-// GLBパス（HTMLの data-glb を優先）→ 絶対URLに解決
+// GLBパス
 const glbRaw = hero?.dataset.glb || './assets/antenna_car_model_v1.glb';
 const glbURL = new URL(glbRaw, window.location.href).href;
 
-// Three 基本セットアップ
+// Three基本セットアップ
 const scene = new THREE.Scene();
 
 const renderer = new THREE.WebGLRenderer({
