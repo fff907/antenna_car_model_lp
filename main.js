@@ -1,3 +1,5 @@
+import * as THREE from 'three';
+
 const hero   = document.getElementById('hero');
 const canvas = document.getElementById('hero-canvas');
 
