@@ -1,53 +1,102 @@
-// main.js  — three.js ESM 版（esm.sh）
+// main.js (ESM)
 import * as THREE from 'https://esm.sh/three@0.160.0';
 import { GLTFLoader }   from 'https://esm.sh/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'https://esm.sh/three@0.160.0/examples/jsm/controls/OrbitControls.js';
 
-// DOM
 const hero   = document.getElementById('hero');
 const canvas = document.getElementById('hero-canvas');
 const hint   = document.getElementById('drag-hint');
 
-// GLBパス（HTMLの data-glb 優先）
+// 設定
+const MODEL_SCALE = 1.25;           // モデル全体の拡大率（1.00〜1.4くらいで）
+const FIT_OFFSET  = 1.12;           // カメラの余白係数（小さいほど寄る）
+const TARGET_YRATIO = 0.35;         // 視点の高さ（モデル高さに対する比）
+const AUTOROTATE_SPEED = 0.6;       // 自動回転速度
+const IDLE_MS_TO_RESUME = 3000;     // 何ms操作が無ければ自動回転を再開するか
+
 const glbRaw = hero?.dataset.glb || './assets/antenna_car_model_v1.glb';
 const glbURL = new URL(glbRaw, window.location.href).href;
+const initialYawDeg = Number(hero?.dataset.yaw ?? 0);
 
-// three.js 基本
+// three.js基本
 const scene = new THREE.Scene();
+
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.setClearAlpha(0); // 背景はセクション色を見せる
-renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.35; // 1.2〜1.6 あたりで微調整可
+renderer.setClearAlpha(0);
 
-// カメラ
 const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
-camera.position.set(0, 1.2, 6);
 scene.add(camera);
 
-// ライト（明るめ設定）
-scene.add(new THREE.AmbientLight(0xffffff, 1.2));
-const hemi = new THREE.HemisphereLight(0xffffff, 0x6677aa, 0.6);
-hemi.position.set(0, 1, 0);
-scene.add(hemi);
-const key = new THREE.DirectionalLight(0xffffff, 1.1); key.position.set( 3, 5,  4); scene.add(key);
-const rim = new THREE.DirectionalLight(0xffffff, 0.7); rim.position.set(-4, 3, -3); scene.add(rim);
+// ライト
+scene.add(new THREE.AmbientLight(0xffffff, 1.1));
+const key = new THREE.DirectionalLight(0xffffff, 1.0); key.position.set( 3, 5,  4); scene.add(key);
+const rim = new THREE.DirectionalLight(0xffffff, 0.6); rim.position.set(-4, 3, -3); scene.add(rim);
 
-// 操作
+// コントロール
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.enablePan = false;
-controls.minDistance = 4;
-controls.maxDistance = 10;
-controls.autoRotate = true;
-controls.autoRotateSpeed = 0.6;
+controls.minDistance = 3.0;
+controls.maxDistance = 12.0;
+controls.minPolarAngle = Math.PI * 0.30;
+controls.maxPolarAngle = Math.PI * 0.70;
 
-// ヒント・Canvas の重なり順を明示
-if (canvas) canvas.style.zIndex = '10';
-if (hint)   hint.style.zIndex   = '30';
+// GLB読み込み
+const loader = new GLTFLoader();
+let model;
 
-// 画面サイズにフィット
+loader.load(
+  glbURL,
+  (gltf) => {
+    model = gltf.scene;
+
+    // 1) センタリング
+    const box = new THREE.Box3().setFromObject(model);
+    const size   = box.getSize(new THREE.Vector3());
+    const center = box.getCenter(new THREE.Vector3());
+    model.position.sub(center);
+
+    // 2) モデル拡大
+    model.scale.setScalar(MODEL_SCALE);
+
+    // 3) 初期回転角度
+    if (!Number.isNaN(initialYawDeg) && initialYawDeg !== 0) {
+      model.rotation.y = THREE.MathUtils.degToRad(initialYawDeg);
+    }
+
+    scene.add(model);
+
+    // 4) カメラを合わせる
+    fitCameraToObject(size.clone().multiplyScalar(MODEL_SCALE));
+
+    // 5) 自動回転は最初ON（手を離すとまた回る）
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = AUTOROTATE_SPEED;
+
+    console.log('GLB loaded:', glbURL);
+  },
+  (e) => console.log('loading...', (e.loaded||0)+'/'+(e.total||'?')),
+  (err) => console.error('GLB load error:', err)
+);
+
+// モデルサイズに合わせてカメラ距離を算出して正面に配置
+function fitCameraToObject(size) {
+  const maxSize = Math.max(size.x, size.y, size.z);
+  const fov = camera.fov * (Math.PI / 180);
+
+  const distance = (maxSize / 2) / Math.tan(fov / 2) * FIT_OFFSET;
+
+  const targetY = size.y * TARGET_YRATIO;
+  controls.target.set(0, targetY, 0);
+
+  camera.position.set(0, targetY, distance);
+  camera.lookAt(controls.target);
+  controls.update();
+}
+
+// リサイズ
 function resize() {
   const rect = hero.getBoundingClientRect();
   const w = Math.max(1, rect.width);
@@ -59,58 +108,25 @@ function resize() {
 addEventListener('resize', resize);
 requestAnimationFrame(resize);
 
-// モデルにカメラを合わせる（小さい問題を解消）
-function fitCameraToObject(obj, offset = 1.35) {
-  const box = new THREE.Box3().setFromObject(obj);
-  const size = box.getSize(new THREE.Vector3());
-  const center = box.getCenter(new THREE.Vector3());
+// 操作
+let hinted = false;
+let idleTimer = null;
 
-  controls.target.copy(center);
-
-  const maxDim = Math.max(size.x, size.y, size.z);
-  const fov = camera.fov * (Math.PI / 180);
-  let cameraZ = (maxDim / (2 * Math.tan(fov / 2))) * offset;
-
-  camera.position.set(center.x + cameraZ * 0.15, center.y + cameraZ * 0.25, center.z + cameraZ);
-  camera.near = cameraZ / 50;
-  camera.far  = cameraZ * 50;
-  camera.updateProjectionMatrix();
+function pauseAutoRotate() {
+  controls.autoRotate = false;
+  if (!hinted) {
+    hinted = true;
+    hint?.classList.add('opacity-0','transition','duration-700');
+  }
+  if (idleTimer) clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => {
+    controls.autoRotate = true; // 一定時間操作が無ければ再開
+  }, IDLE_MS_TO_RESUME);
 }
 
-// GLB 読み込み
-const loader = new GLTFLoader();
-loader.load(
-  glbURL,
-  (gltf) => {
-    const model = gltf.scene;
-
-    // マテリアルが暗い場合の軽い補正
-    model.traverse((o) => {
-      if (o.isMesh && o.material && 'metalness' in o.material) {
-        o.material.metalness = Math.min(0.6, o.material.metalness ?? 0.6);
-        o.material.roughness = o.material.roughness ?? 0.6;
-      }
-    });
-
-    scene.add(model);
-    fitCameraToObject(model, 1.4); // 距離感のツマミ
-
-    console.log('GLB loaded', glbURL);
-  },
-  (e) => console.log('loading...', (e.loaded||0)+'/'+(e.total||'?')),
-  (err) => console.error('GLB load error:', err)
-);
-
-// 初回操作でヒントをフェードアウト
-let hinted = false;
-['pointerdown','touchstart','wheel','keydown'].forEach(ev=>{
-  addEventListener(ev, () => {
-    if (!hinted) {
-      hinted = true;
-      controls.autoRotate = false;
-      hint?.classList.add('opacity-0','transition','duration-700');
-    }
-  }, { passive: true });
+// 操作が入ったら一時停止 → タイマーで再開
+['pointerdown','pointermove','touchstart','wheel','keydown'].forEach(ev=>{
+  addEventListener(ev, pauseAutoRotate, { passive: true });
 });
 
 // ループ
