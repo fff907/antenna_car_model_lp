@@ -8,7 +8,7 @@ const canvas = document.getElementById('hero-canvas');
 const hint   = document.getElementById('drag-hint');
 
 // 設定
-const MODEL_SCALE = 1.25;           // モデル全体の拡大率
+const MODEL_SCALE = 1.0;           // モデル全体の拡大率
 const FIT_OFFSET  = 1.12;           // カメラの余白係数（小さいほど寄る）
 const TARGET_YRATIO = 0.52;         // 視点の高さ（モデル高さに対する比）
 const AUTOROTATE_SPEED = 0.6;       // 自動回転速度
