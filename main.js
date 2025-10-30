@@ -21,19 +21,18 @@ const initialYawDeg = Number(hero?.dataset.yaw ?? -35); // デフォルト角度
 
 // three.js基本
 const scene = new THREE.Scene();
-
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setClearAlpha(0);
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.20; // 少しだけ明るく
+renderer.toneMappingExposure = 1.20;
 
 const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
 scene.add(camera);
 
 // ライト
-scene.add(new THREE.AmbientLight(0xffffff, 1.0)); // 1.4 → 1.0 にして指向性で立体感
+scene.add(new THREE.AmbientLight(0xffffff, 1.0));
 const hemi = new THREE.HemisphereLight(0xffffff, 0x223344, 0.6);
 scene.add(hemi); // 実際にシーンへ追加
 
