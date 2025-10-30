@@ -216,12 +216,12 @@
         header.classList.toggle('backdrop-blur', !onHero);
         header.classList.toggle('border-b',      !onHero);
         header.classList.toggle('border-black/10', !onHero);
-        header.classList.toggle('shadow-sm',     !onHero);
 
         // ハンバーガー（三本線）の色
         btn?.classList.toggle('text-white',  onHero);
         btn?.classList.toggle('text-gray-900', !onHero);
 
+        // PCナビの文字色
         list?.classList.toggle('md:!text-white',     onHero);
         list?.classList.toggle('md:!text-gray-900', !onHero);
       }, {
