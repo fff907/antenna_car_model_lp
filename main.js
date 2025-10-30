@@ -123,7 +123,7 @@ requestAnimationFrame(resize);
 // 操作
 let hinted = false;
 let idleTimer = null;
-let hoverTimer = null;
+let hoverTimer = null;  // ホバータイマー
 
 function showAndPause() {
   controls.autoRotate = false;
@@ -132,7 +132,7 @@ function showAndPause() {
     hint?.classList.add('opacity-0','transition','duration-700');
   }
   clearTimeout(idleTimer);
-  clearTimeout(hoverTimer); // 既存タイマーをクリア
+  clearTimeout(hoverTimer); // ホバータイマークリア
 }
 
 function resumeLater() {
@@ -144,7 +144,7 @@ function resumeLater() {
 
 // キャンバス内ホバー判定でヒント表示を管理
 canvas.addEventListener('mouseenter', () => {
-  // ホバーが開始されたらヒントをすぐ表示
+  // ホバーが開始されたらヒントを表示
   if (hint?.classList.contains('opacity-0')) {
     hint?.classList.remove('opacity-0');
   }
@@ -156,9 +156,9 @@ canvas.addEventListener('mouseenter', () => {
 });
 
 canvas.addEventListener('mouseleave', () => {
-  // キャンバス外へ移動したらヒントが再表示
+  // キャンバス外へマウスが移動したらヒントを消す
   clearTimeout(hoverTimer); // 既存のホバータイマーをクリア
-  hint?.classList.remove('opacity-0');
+  hint?.classList.add('opacity-0', 'transition', 'duration-700');
 });
 
 // 1) ドラッグ開始で一時停止
