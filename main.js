@@ -10,10 +10,10 @@ const hint   = document.getElementById('drag-hint');
 // 設定
 const MODEL_SCALE = 1.25;           // モデル全体の拡大率
 const FIT_OFFSET  = 1.12;           // カメラの余白係数（小さいほど寄る）
-const TARGET_YRATIO = 0.45;         // 視点の高さ（モデル高さに対する比）
+const TARGET_YRATIO = 0.52;         // 視点の高さ（モデル高さに対する比）
 const AUTOROTATE_SPEED = 0.6;       // 自動回転速度
 const IDLE_MS_TO_RESUME = 2500;     // 何ms操作が無ければ自動回転を再開するか
-const MODEL_LIFT = 0.16;            // モデルを持ち上げる量
+const MODEL_LIFT = 0.22;            // モデルを持ち上げる量
 
 const glbRaw = hero?.dataset.glb || './assets/antenna_car_model_v1.glb';
 const glbURL = new URL(glbRaw, window.location.href).href;
