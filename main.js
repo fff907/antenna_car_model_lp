@@ -172,9 +172,11 @@ controls.addEventListener('end', () => {
 });
 
 // 3) ホイールでズームしたときも一時停止 → 少し待って再開
-renderer.domElement.addEventListener('wheel', () => {
-  showAndPause();
-  resumeLater();
+canvas.addEventListener('wheel', (event) => {
+  if (event.target === canvas) { // canvas内でのスクロール時のみ
+    showAndPause();
+    resumeLater();
+  }
 }, { passive: true });
 
 // ループ
