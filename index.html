@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>衛星モバイル伝送出張サービス</title>
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,19 +40,16 @@
 
   <!-- Header -->
   <header class="fixed inset-x-0 top-0 z-[80] text-white">
-    <div class="flex items-center justify-end pt-[40px] px-[50px]">
-      <!-- Desktop Nav -->
-      <nav class="hidden md:block">
-        <ul class="flex items-center space-x-[50px]">
-          <li><a href="#service"   class="font-bold text-[18px] text-white/90 hover:text-white transition">サービス概要</a></li>
-          <li><a href="#pricing"   class="font-bold text-[18px] text-white/90 hover:text-white transition">料金</a></li>
-          <li><a href="#contact"   class="font-bold text-[18px] text-white/90 hover:text-white transition">お問い合わせ</a></li>
-        </ul>
-      </nav>
+    <div class="flex items-center justify-between pt-[40px] px-[50px]">
+      <!-- ロゴ -->
+      <div class="flex items-center gap-2">
+        <div class="font-extrabold text-[16px] md:text-[18px]">衛星モバイル伝送出張サービス</div>
+        <div class="font-extrabold text-[12px] md:text-[14px] opacity-90">by スカイネットワーク株式会社</div>
+      </div>
 
       <!-- Mobile Hamburger -->
       <button id="nav-toggle"
-              class="absolute right-6 top-5 md:hidden ml-2 relative h-10 w-10 grid place-items-center text-white"
+              class="md:hidden relative h-10 w-10 grid place-items-center text-white"
               aria-label="メニュー" aria-expanded="false" aria-controls="mobile-menu">
         <span class="sr-only">メニュー</span>
         <span class="bar top    absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
@@ -62,14 +58,14 @@
       </button>
     </div>
 
-    <!-- Mobile Nav -->
+    <!-- ナビゲーション -->
     <div id="mobile-menu"
-         class="md:hidden pointer-events-none opacity-0 translate-y-[-8px] transition-all duration-300 px-3">
+        class="md:hidden pointer-events-none opacity-0 translate-y-[-8px] transition-all duration-300 px-3">
       <div class="mt-3 rounded-xl bg-white/10 backdrop-blur supports-[backdrop-filter]:bg-white/15 border border-white/15">
         <nav class="grid gap-1 p-3 text-black">
-          <a href="#service"   class="rounded-md px-3 py-2 hover:bg-white/10">サービス概要</a>
-          <a href="#pricing"   class="rounded-md px-3 py-2 hover:bg-white/10">料金</a>
-          <a href="#contact"   class="rounded-md px-3 py-2 hover:bg-white/10">お問い合わせ</a>
+          <a href="#service" class="rounded-md px-3 py-2 hover:bg-white/10">サービス概要</a>
+          <a href="#pricing" class="rounded-md px-3 py-2 hover:bg-white/10">料金</a>
+          <a href="#contact" class="rounded-md px-3 py-2 hover:bg-white/10">お問い合わせ</a>
         </nav>
       </div>
     </div>
