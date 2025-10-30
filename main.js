@@ -10,13 +10,14 @@ const hint   = document.getElementById('drag-hint');
 // 設定
 const MODEL_SCALE = 1.25;           // モデル全体の拡大率
 const FIT_OFFSET  = 1.12;           // カメラの余白係数（小さいほど寄る）
-const TARGET_YRATIO = 0.35;         // 視点の高さ（モデル高さに対する比）
+const TARGET_YRATIO = 0.45;         // 視点の高さ（モデル高さに対する比）
 const AUTOROTATE_SPEED = 0.6;       // 自動回転速度
-const IDLE_MS_TO_RESUME = 2000;     // 何ms操作が無ければ自動回転を再開するか
+const IDLE_MS_TO_RESUME = 2500;     // 何ms操作が無ければ自動回転を再開するか
+const MODEL_LIFT = 0.16;            // モデルを持ち上げる量
 
 const glbRaw = hero?.dataset.glb || './assets/antenna_car_model_v1.glb';
 const glbURL = new URL(glbRaw, window.location.href).href;
-const initialYawDeg = Number(hero?.dataset.yaw ?? 0);
+const initialYawDeg = Number(hero?.dataset.yaw ?? -35); // デフォルト角度
 
 // three.js基本
 const scene = new THREE.Scene();
@@ -42,6 +43,8 @@ controls.minDistance = 3.0;
 controls.maxDistance = 12.0;
 controls.minPolarAngle = Math.PI * 0.30;
 controls.maxPolarAngle = Math.PI * 0.70;
+controls.autoRotate = true;
+controls.autoRotateSpeed = AUTOROTATE_SPEED;
 
 // GLB読み込み
 const loader = new GLTFLoader();
@@ -57,6 +60,7 @@ loader.load(
     const size   = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
     model.position.sub(center);
+    model.position.y += size.y * MODEL_LIFT; 
 
     // 2) モデル拡大
     model.scale.setScalar(MODEL_SCALE);
@@ -65,7 +69,6 @@ loader.load(
     if (!Number.isNaN(initialYawDeg) && initialYawDeg !== 0) {
       model.rotation.y = THREE.MathUtils.degToRad(initialYawDeg);
     }
-
     scene.add(model);
 
     // 4) カメラを合わせる
@@ -112,22 +115,37 @@ requestAnimationFrame(resize);
 let hinted = false;
 let idleTimer = null;
 
-function pauseAutoRotate() {
+function showAndPause() {
   controls.autoRotate = false;
   if (!hinted) {
     hinted = true;
     hint?.classList.add('opacity-0','transition','duration-700');
   }
-  if (idleTimer) clearTimeout(idleTimer);
+  clearTimeout(idleTimer);
+}
+
+function resumeLater() {
+  clearTimeout(idleTimer);
   idleTimer = setTimeout(() => {
-    controls.autoRotate = true; // 一定時間操作が無ければ再開
+    controls.autoRotate = true;   // 一定時間操作が無ければ再開
   }, IDLE_MS_TO_RESUME);
 }
 
-// どれか操作が入ったら一時停止→タイマーで再開
-['pointerdown','pointermove','touchstart','wheel','keydown'].forEach(ev=>{
-  addEventListener(ev, pauseAutoRotate, { passive: true });
+// 1) ドラッグ開始で一時停止
+controls.addEventListener('start', () => {
+  showAndPause();
 });
+
+// 2) ドラッグ終了でスケジュール再開
+controls.addEventListener('end', () => {
+  resumeLater();
+});
+
+// 3) ホイールでズームしたときも一時停止 → 少し待って再開
+renderer.domElement.addEventListener('wheel', () => {
+  showAndPause();
+  resumeLater();
+}, { passive: true });
 
 // ループ
 const clock = new THREE.Clock();
