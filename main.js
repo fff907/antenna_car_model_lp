@@ -26,14 +26,23 @@ const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true 
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setClearAlpha(0);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.15;
 
 const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
 scene.add(camera);
 
 // ライト
-scene.add(new THREE.AmbientLight(0xffffff, 1.1));
-const key = new THREE.DirectionalLight(0xffffff, 1.0); key.position.set( 3, 5,  4); scene.add(key);
-const rim = new THREE.DirectionalLight(0xffffff, 0.6); rim.position.set(-4, 3, -3); scene.add(rim);
+scene.add(new THREE.AmbientLight(0xffffff, 1.4));
+const hemi = new THREE.HemisphereLight(0xffffff, 0x223344, 0.6);
+
+const key = new THREE.DirectionalLight(0xffffff, 1.35);
+key.position.set(3, 5, 4);
+scene.add(key);
+
+const rim = new THREE.DirectionalLight(0xffffff, 0.9);
+rim.position.set(-4, 3, -3);
+scene.add(rim);
 
 // コントロール
 const controls = new OrbitControls(camera, renderer.domElement);

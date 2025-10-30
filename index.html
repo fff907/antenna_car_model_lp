@@ -8,6 +8,15 @@
   <style>
     .clip-hero { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
     .clip-cta  { clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); }
+    @keyframes swipe {
+      0%   { transform: translateX(-8px); opacity: .6; }
+      50%  { transform: translateX( 8px); opacity: 1;  }
+      100% { transform: translateX(-8px); opacity: .6; }
+    }
+    @keyframes hintFade {
+      0%,100% { opacity: .85; }
+      50%     { opacity: 1; }
+    }
   </style>
 </head>
 <body class="font-sans text-gray-900 antialiased">
@@ -15,10 +24,11 @@
   <!-- Hero -->
   <section
     id="hero"
-    class="clip-hero relative z-10 min-h-[70vh] md:min-h-[80vh] overflow-hidden bg-[#4A7CD8] text-white pb-16 md:pb-20"
+    class="clip-hero relative z-10 min-h-[70vh] md:min-h-[80vh] overflow-hidden bg-[#4A7CD8] text-white pb-16 md:pb-20 group"
     data-glb="./assets/antenna_car_model_v1.glb"
   >
-    <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-[100]"></canvas>
+    <!-- キャンバス -->
+    <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-[10]"></canvas>
 
     <!-- 見出し -->
     <div class="absolute inset-x-0 top-16 md:top-20 px-6 text-center pointer-events-none z-20">
@@ -27,26 +37,38 @@
       </h1>
     </div>
 
-    <!-- ドラッグヒント -->
+    <!-- ヒント -->
     <div id="drag-hint"
         class="absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2
-                z-30 bg-white/25 text-white backdrop-blur-sm rounded-full
-                px-4 py-1 text-sm md:text-base flex items-center gap-2
-                pointer-events-none drop-shadow transition">
-      <span class="select-none">ドラッグで回転</span>
+                z-[60] pointer-events-none transition-opacity duration-700
+                opacity-90 group-hover:opacity-0">
+      <div class="bg-white/25 text-white backdrop-blur-sm rounded-full px-4 py-1
+                  flex items-center gap-2 drop-shadow">
+        <!-- 指アイコン -->
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+            class="[animation:hintFade_2s_ease-in-out_infinite]">
+          <path d="M9 11V6a2 2 0 1 1 4 0v5h1.5V8.5a2 2 0 1 1 4 0V13a6.5 6.5 0 0 1-6.5 6.5H10A5 5 0 0 1 5 14v-1a2 2 0 1 1 4 0v-2h0Z"/>
+        </svg>
+        <!-- スワイプ矢印 -->
+        <div class="relative w-10 h-2">
+          <span class="absolute inset-y-0 left-0 inline-block w-2 h-2 rounded-full bg-white/80
+                      [animation:swipe_1.6s_ease-in-out_infinite]"></span>
+          <span class="absolute inset-y-0 right-0 inline-block w-2 h-2 rounded-full bg-white/50"></span>
+        </div>
+      </div>
     </div>
 
     <!-- 情報カード -->
     <div id="info-left"
         class="absolute top-1/3 left-[6%] w-[260px] md:w-[320px] bg-white text-[#0E2B64]
-                rounded-lg shadow-lg p-4 z-20">
+                rounded-lg shadow-lg p-4 z-40">
       <p class="text-sm md:text-base font-semibold mb-1">衛星アンテナユニット</p>
       <p class="text-xs md:text-sm opacity-80">自動展開・自動追尾で短時間で回線確立。</p>
     </div>
 
     <div id="info-right"
         class="absolute top-1/3 right-[6%] w-[260px] md:w-[320px] bg-white text-[#0E2B64]
-                rounded-lg shadow-lg p-4 z-20">
+                rounded-lg shadow-lg p-4 z-40">
       <p class="text-sm md:text-base font-semibold mb-1">機材ラック／配信装置</p>
       <p class="text-xs md:text-sm opacity-80">映像を遠隔拠点へライブ伝送。</p>
     </div>
