@@ -38,9 +38,8 @@
 <body class="font-sans text-gray-900 antialiased"
       style="font-family:'Noto Sans JP','Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',sans-serif;">
 
-  <!-- Header -->
+  <!-- ヘッダー -->
   <header class="fixed inset-x-0 top-0 z-[80] text-white">
-    <!-- SP表示 -->
     <div class="mx-auto w-full px-5 pt-3 md:px-[50px] md:pt-[40px]">
       <div class="flex items-start md:items-center justify-between">
         <!-- ロゴ -->
@@ -53,7 +52,7 @@
           </div>
         </div>
 
-        <!-- ハンバーガー(三本線)-->
+        <!-- ハンバーガー(三本線) -->
         <button id="nav-toggle"
                 class="md:hidden relative h-10 w-10 grid place-items-center text-white -mt-2 mr-1"
                 aria-label="メニュー" aria-expanded="false" aria-controls="main-nav">
@@ -65,14 +64,15 @@
       </div>
     </div>
 
-    <nav aria-label="メインナビ" class="md:static md:mx-[50px]">
+    <nav aria-label="メインナビ"
+        class="md:absolute md:top-[40px] md:right-[50px] md:mx-0">
       <ul id="main-nav"
           class="fixed inset-x-3 top-[68px] md:static
-                 pointer-events-none opacity-0 -translate-y-2 transition-all duration-300
-                 md:pointer-events-auto md:opacity-100 md:translate-y-0
-                 bg-white text-gray-900 md:bg-transparent md:text-white
-                 rounded-xl border border-black/10 shadow md:rounded-none md:border-0 md:shadow-none
-                 grid gap-1 p-2 md:p-0 md:flex md:items-center md:gap-[50px]">
+                pointer-events-none opacity-0 -translate-y-2 transition-all duration-300
+                md:pointer-events-auto md:opacity-100 md:translate-y-0
+                bg-white text-gray-900 md:bg-transparent md:text-white
+                rounded-xl border border-black/10 shadow md:rounded-none md:border-0 md:shadow-none
+                grid gap-1 p-2 md:p-0 md:flex md:items-center md:gap-[50px]">
         <li><a href="#service" class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">サービス概要</a></li>
         <li><a href="#pricing" class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">料金</a></li>
         <li><a href="#contact" class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">お問い合わせ</a></li>
@@ -80,7 +80,7 @@
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- ヒーローエリア -->
   <section
     id="hero"
     class="clip-hero relative z-10 min-h-[80vh] md:min-h-[100vh] overflow-hidden bg-[#4A7CD8] text-white pb-16 md:pb-20 group"
@@ -132,22 +132,22 @@
     <div class="h-10"></div>
   </section>
 
-  <!-- Problem -->
+  <!-- 問題と解決 -->
   <section id="problem" class="relative z-0 bg-white text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
     <h2 class="text-3xl font-semibold text-center">こんな悩みがある / こう解決する</h2>
   </section>
 
-  <!-- Service -->
+  <!-- サービス -->
   <section id="service" class="bg-[#F7F9FC] text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
     <h2 class="text-3xl font-semibold text-center">サービス紹介</h2>
   </section>
 
-  <!-- Pricing -->
+  <!-- 料金 -->
   <section id="pricing" class="bg-white text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
     <h2 class="text-3xl font-semibold text-center">料金</h2>
   </section>
 
-  <!-- CTA / Contact -->
+  <!-- 問い合わせ -->
   <section id="contact" class="clip-cta bg-[#4A7CD8] text-white flex flex-col items-center justify-center py-20 md:py-28 px-6">
     <h2 class="text-2xl md:text-4xl font-bold mb-8 text-center">今すぐ衛星通信車を手配</h2>
 
@@ -170,7 +170,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- フッター -->
   <footer class="bg-gray-900 text-white text-center py-6 px-6">
     フッター情報
   </footer>
@@ -194,7 +194,7 @@
     })();
   </script>
 
-  <!-- three.js ロジック -->
+  <!-- three.jsロジック -->
   <script type="module" src="./main.js?v=9"></script>
 </body>
 </html>
