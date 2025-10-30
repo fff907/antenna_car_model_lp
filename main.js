@@ -11,7 +11,7 @@ const hint   = document.getElementById('drag-hint');
 const MODEL_SCALE = 1.1;           // モデル全体の拡大率
 const FIT_OFFSET  = 1.12;           // カメラの余白係数（小さいほど寄る）
 const TARGET_YRATIO = 0.52;         // 視点の高さ（モデル高さに対する比）
-const AUTOROTATE_SPEED = 0.6;       // 自動回転速度
+const AUTOROTATE_SPEED = 0.8;       // 自動回転速度
 const IDLE_MS_TO_RESUME = 2500;     // 何ms操作が無ければ自動回転を再開するか
 let MODEL_LIFT = 0.5;               // モデルを持ち上げる量
 
@@ -27,20 +27,21 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setClearAlpha(0);
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.15;
+renderer.toneMappingExposure = 1.20; // 少しだけ明るく
 
 const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
 scene.add(camera);
 
 // ライト
-scene.add(new THREE.AmbientLight(0xffffff, 1.4));
+scene.add(new THREE.AmbientLight(0xffffff, 1.0)); // 1.4 → 1.0 にして指向性で立体感
 const hemi = new THREE.HemisphereLight(0xffffff, 0x223344, 0.6);
+scene.add(hemi); // 実際にシーンへ追加
 
-const key = new THREE.DirectionalLight(0xffffff, 1.35);
+const key = new THREE.DirectionalLight(0xffffff, 1.6); // 1.35 → 1.6
 key.position.set(3, 5, 4);
 scene.add(key);
 
-const rim = new THREE.DirectionalLight(0xffffff, 0.9);
+const rim = new THREE.DirectionalLight(0xffffff, 1.1); // 0.9 → 1.1
 rim.position.set(-4, 3, -3);
 scene.add(rim);
 
@@ -54,6 +55,7 @@ controls.minPolarAngle = Math.PI * 0.30;
 controls.maxPolarAngle = Math.PI * 0.70;
 controls.autoRotate = true;
 controls.autoRotateSpeed = AUTOROTATE_SPEED;
+controls.enableZoom = false; // 通常はズーム無効（ページスクロール優先）
 
 // GLB読み込み
 const loader = new GLTFLoader();
@@ -69,7 +71,7 @@ loader.load(
     const size   = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
     model.position.sub(center);
-    model.position.y += size.y * MODEL_LIFT; 
+    model.position.y += size.y * MODEL_LIFT;
 
     // 2) モデル拡大
     model.scale.setScalar(MODEL_SCALE);
@@ -124,6 +126,7 @@ requestAnimationFrame(resize);
 let hinted = false;
 let idleTimer = null;
 let hoverTimer = null;  // ホバータイマー
+let zoomEnableTimer = null; // 一時的ズーム許可のタイマー
 
 function showAndPause() {
   controls.autoRotate = false;
@@ -144,21 +147,12 @@ function resumeLater() {
 
 // キャンバス内ホバー判定でヒント表示を管理
 canvas.addEventListener('mouseenter', () => {
-  // ホバーが開始されたらヒントを表示
-  if (hint?.classList.contains('opacity-0')) {
-    hint?.classList.remove('opacity-0');
-  }
-  // ホバーしてから少しして消すようにする
-  clearTimeout(hoverTimer);
-  hoverTimer = setTimeout(() => {
-    hint?.classList.add('opacity-0', 'transition', 'duration-700');
-  }, 1500); // 1.5秒後に消す
+  // ホバー開始で常に消える（統一）
+  hint?.classList.add('opacity-0','transition','duration-700');
 });
-
 canvas.addEventListener('mouseleave', () => {
-  // キャンバス外へマウスが移動したらヒントを消す
-  clearTimeout(hoverTimer); // 既存のホバータイマーをクリア
-  hint?.classList.add('opacity-0', 'transition', 'duration-700');
+  // キャンバス外へ出たら再表示（次のユーザーにも親切）
+  hint?.classList.remove('opacity-0');
 });
 
 // 1) ドラッグ開始で一時停止
@@ -173,16 +167,31 @@ controls.addEventListener('end', () => {
 
 // 3) ホイールでズームしたときも一時停止 → 少し待って再開
 canvas.addEventListener('wheel', (event) => {
-  if (event.target === canvas) { // canvas内でのスクロール時のみ
+  // Ctrl/Alt 押下時のみズーム扱い（それ以外はページスクロール）
+  const wantZoom = event.ctrlKey || event.altKey;
+  controls.enableZoom = wantZoom;
+
+  if (wantZoom) {
+    event.preventDefault(); // ズーム中はページスクロールを止める
     showAndPause();
     resumeLater();
+    clearTimeout(zoomEnableTimer);
+    zoomEnableTimer = setTimeout(() => { controls.enableZoom = false; }, 600);
   }
-}, { passive: true });
+}, { passive: false });
+
+// タブ復帰時のバグ対策
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    clock.getDelta();
+  }
+});
 
 // ループ
 const clock = new THREE.Clock();
 (function tick(){
-  controls.update(clock.getDelta());
+  const dt = Math.min(clock.getDelta(), 0.033);
+  controls.update(dt);
   renderer.render(scene, camera);
   requestAnimationFrame(tick);
 })();
