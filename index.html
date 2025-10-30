@@ -8,6 +8,7 @@
   <style>
     .clip-hero { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
     .clip-cta  { clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); }
+
     @keyframes swipe {
       0%   { transform: translateX(-8px); opacity: .6; }
       50%  { transform: translateX( 8px); opacity: 1;  }
@@ -17,27 +18,86 @@
       0%,100% { opacity: .85; }
       50%     { opacity: 1; }
     }
+
+    /* Hamburger to X */
+    #nav-toggle .bar.middle { transform: translateY(0); }
+    #nav-toggle .bar.top    { transform: translateY(-7px); }
+    #nav-toggle .bar.bottom { transform: translateY( 7px); }
+    #nav-toggle.open .bar.middle { opacity: 0; }
+    #nav-toggle.open .bar.top    { transform: translateY(0) rotate(45deg); }
+    #nav-toggle.open .bar.bottom { transform: translateY(0) rotate(-45deg); }
   </style>
 </head>
 <body class="font-sans text-gray-900 antialiased">
 
+  <!-- Header -->
+  <header class="fixed inset-x-0 top-0 z-[70]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-2 text-white/90 hover:text-white">
+          <span class="inline-block h-3 w-3 rounded-sm bg-[#FFA800]"></span>
+          <span class="text-sm md:text-base font-semibold tracking-wide">スカイネットワーク株式会社</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8 text-white/90">
+          <a href="#hero"     class="hover:text-white">サービス概要</a>
+          <a href="#service"  class="hover:text-white">機能</a>
+          <a href="#pricing"  class="hover:text-white">料金</a>
+          <a href="#contact"  class="hover:text-white">お問い合わせ</a>
+        </nav>
+
+        <!-- Mobile Hamburger -->
+        <button id="nav-toggle"
+                class="md:hidden relative h-10 w-10 grid place-items-center text-white"
+                aria-label="メニュー" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="sr-only">メニュー</span>
+          <span class="bar top    absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
+          <span class="bar middle absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
+          <span class="bar bottom absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu"
+         class="md:hidden pointer-events-none opacity-0 translate-y-[-8px]
+                transition-all duration-300">
+      <div class="mx-3 rounded-xl bg-white/10 backdrop-blur supports-[backdrop-filter]:bg-white/15 border border-white/15">
+        <nav class="grid gap-1 p-3 text-white">
+          <a href="#hero"     class="rounded-md px-3 py-2 hover:bg-white/10">サービス概要</a>
+          <a href="#service"  class="rounded-md px-3 py-2 hover:bg白/10">機能</a>
+          <a href="#pricing"  class="rounded-md px-3 py-2 hover:bg白/10">料金</a>
+          <a href="#contact"  class="rounded-md px-3 py-2 hover:bg白/10">お問い合わせ</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
   <!-- Hero -->
   <section
     id="hero"
-    class="clip-hero relative z-10 min-h-[80vh] md:min-h-[100vh] overflow-hidden bg-[#4A7CD8] text-white pb-16 md:pb-20 group"
+    class="clip-hero relative z-10 min-h-[80vh] md:min-h-[100vh] overflow-hidden bg-[#4A7CD8] text-white pb-16 md:pb-20 group pt-24"
     data-glb="./assets/antenna_car_model_v1.glb"
   >
     <!-- キャンバス -->
     <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-[10]"></canvas>
 
-    <!-- 見出し -->
+    <!-- タイトル -->
+    <div class="absolute left-6 md:left-10 top-5 md:top-6 z-30 text-white/90 text-xs md:text-sm leading-tight pointer-events-none">
+      <div class="font-semibold">衛星モバイル伝送出張サービス</div>
+      <div class="opacity-90">by スカイネットワーク株式会社</div>
+    </div>
+
+    <!-- キャッチコピー -->
     <div class="absolute inset-x-0 top-16 md:top-20 px-6 text-center pointer-events-none z-20">
       <h1 class="text-3xl md:text-5xl font-extrabold tracking-wide drop-shadow">
         現場の“今”を、遠隔でつなぐ。
       </h1>
     </div>
 
-   <!-- ヒント -->
+    <!-- ヒント -->
     <div id="drag-hint"
         class="absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2
                 z-[60] pointer-events-none transition-opacity duration-700
@@ -76,35 +136,35 @@
     <div class="h-10"></div>
   </section>
 
-  <!-- Problem　-->
-  <section class="relative z-0 bg-white text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
+  <!-- Problem -->
+  <section id="problem" class="relative z-0 bg-white text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
     <h2 class="text-3xl font-semibold text-center">こんな悩みがある / こう解決する</h2>
   </section>
 
   <!-- Service -->
-  <section class="bg-[#F7F9FC] text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
+  <section id="service" class="bg-[#F7F9FC] text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
     <h2 class="text-3xl font-semibold text-center">サービス紹介</h2>
   </section>
 
   <!-- Pricing -->
-  <section class="bg-white text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
+  <section id="pricing" class="bg-white text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
     <h2 class="text-3xl font-semibold text-center">料金</h2>
   </section>
 
-  <!-- CTA -->
-    <section class="clip-cta bg-[#4A7CD8] text-white flex flex-col items-center justify-center py-20 md:py-28 px-6">
+  <!-- CTA / Contact -->
+  <section id="contact" class="clip-cta bg-[#4A7CD8] text-white flex flex-col items-center justify-center py-20 md:py-28 px-6">
     <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">今すぐ衛星通信車を手配</h2>
 
     <div class="relative isolate">
-        <!-- バッジ -->
-        <span class="absolute -top-4 -left-4 z-20 bg-[#FFA800] text-[#0E2B64]
-                    text-xs px-3 py-1 rounded shadow font-semibold pointer-events-none">
+      <!-- バッジ -->
+      <span class="absolute -top-4 -left-4 z-20 bg-[#FFA800] text-[#0E2B64]
+                  text-xs px-3 py-1 rounded shadow font-semibold pointer-events-none">
         緊急対応
-        </span>
+      </span>
 
-        <!-- ボタン -->
-        <a href="#contact"
-        class="group relative z-10 inline-flex h-12 items-center justify-center overflow-hidden
+      <!-- ボタン -->
+      <a href="#contact"
+         class="group relative z-10 inline-flex h-12 items-center justify-center overflow-hidden
                 rounded-md bg-red-600 px-7 font-semibold text-white shadow transition
                 hover:scale-[1.03] hover:bg-red-700 active:bg-red-800
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-300">
@@ -114,17 +174,49 @@
         <div class="pointer-events-none absolute inset-0 z-0 flex h-full w-full justify-center
                     [transform:skew(-12deg)_translateX(-100%)]
                     group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
-            <div class="relative h-full w-8 bg-white/20"></div>
+          <div class="relative h-full w-8 bg-white/20"></div>
         </div>
-        </a>
+      </a>
     </div>
-    </section>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white text-center py-6 px-6">
     フッター情報
   </footer>
 
+  <!-- three.js ロジック -->
   <script type="module" src="./main.js?v=9"></script>
+
+  <!-- Mobile Nav Script -->
+  <script>
+    (function () {
+      const toggle = document.getElementById('nav-toggle');
+      const drawer = document.getElementById('mobile-menu');
+
+      function setOpen(isOpen) {
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        drawer.classList.toggle('pointer-events-none', !isOpen);
+        drawer.classList.toggle('opacity-0', !isOpen);
+        drawer.classList.toggle('translate-y-[-8px]', !isOpen);
+      }
+
+      toggle?.addEventListener('click', () => {
+        const next = !(toggle.classList.contains('open'));
+        setOpen(next);
+      });
+
+      drawer?.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') setOpen(false);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setOpen(false);
+      });
+
+      window.addEventListener('scroll', () => setOpen(false), { passive: true });
+    })();
+  </script>
 </body>
 </html>
