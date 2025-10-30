@@ -40,35 +40,44 @@
 
   <!-- Header -->
   <header class="fixed inset-x-0 top-0 z-[80] text-white">
-    <div class="flex items-center justify-between pt-[40px] px-[50px]">
-      <!-- ロゴ -->
-      <div class="flex items-center gap-2">
-        <div class="font-extrabold text-[16px] md:text-[18px]">衛星モバイル伝送出張サービス</div>
-        <div class="font-extrabold text-[12px] md:text-[14px] opacity-90">by スカイネットワーク株式会社</div>
-      </div>
+    <!-- SP表示 -->
+    <div class="mx-auto w-full px-5 pt-3 md:px-[50px] md:pt-[40px]">
+      <div class="flex items-start md:items-center justify-between">
+        <!-- ロゴ -->
+        <div class="select-none leading-tight">
+          <div class="font-extrabold text-[16px] md:text-[18px]">
+            衛星モバイル伝送出張サービス
+          </div>
+          <div class="font-extrabold text-[12px] md:text-[14px] opacity-90">
+            by スカイネットワーク株式会社
+          </div>
+        </div>
 
-      <!-- Mobile Hamburger -->
-      <button id="nav-toggle"
-              class="md:hidden relative h-10 w-10 grid place-items-center text-white"
-              aria-label="メニュー" aria-expanded="false" aria-controls="mobile-menu">
-        <span class="sr-only">メニュー</span>
-        <span class="bar top    absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
-        <span class="bar middle absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
-        <span class="bar bottom absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
-      </button>
-    </div>
-
-    <!-- ナビゲーション -->
-    <div id="mobile-menu"
-        class="md:hidden pointer-events-none opacity-0 translate-y-[-8px] transition-all duration-300 px-3">
-      <div class="mt-3 rounded-xl bg-white/10 backdrop-blur supports-[backdrop-filter]:bg-white/15 border border-white/15">
-        <nav class="grid gap-1 p-3 text-black">
-          <a href="#service" class="rounded-md px-3 py-2 hover:bg-white/10">サービス概要</a>
-          <a href="#pricing" class="rounded-md px-3 py-2 hover:bg-white/10">料金</a>
-          <a href="#contact" class="rounded-md px-3 py-2 hover:bg-white/10">お問い合わせ</a>
-        </nav>
+        <!-- ハンバーガー(三本線)-->
+        <button id="nav-toggle"
+                class="md:hidden relative h-10 w-10 grid place-items-center text-white -mt-2 mr-1"
+                aria-label="メニュー" aria-expanded="false" aria-controls="main-nav">
+          <span class="sr-only">メニュー</span>
+          <span class="bar top    absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
+          <span class="bar middle absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
+          <span class="bar bottom absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
+        </button>
       </div>
     </div>
+
+    <nav aria-label="メインナビ" class="md:static md:mx-[50px]">
+      <ul id="main-nav"
+          class="fixed inset-x-3 top-[68px] md:static
+                 pointer-events-none opacity-0 -translate-y-2 transition-all duration-300
+                 md:pointer-events-auto md:opacity-100 md:translate-y-0
+                 bg-white text-gray-900 md:bg-transparent md:text-white
+                 rounded-xl border border-black/10 shadow md:rounded-none md:border-0 md:shadow-none
+                 grid gap-1 p-2 md:p-0 md:flex md:items-center md:gap-[50px]">
+        <li><a href="#service" class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">サービス概要</a></li>
+        <li><a href="#pricing" class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">料金</a></li>
+        <li><a href="#contact" class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">お問い合わせ</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- Hero -->
@@ -87,19 +96,16 @@
       </h1>
     </div>
 
-    <!-- ヒント -->
+    <!-- ドラッグヒント -->
     <div id="drag-hint"
         class="absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2
-                z-[60] pointer-events-none transition-opacity duration-700
-                opacity-90">
+               z-[60] pointer-events-none transition-opacity duration-700 opacity-90">
       <div class="bg-white/25 text-white backdrop-blur-sm rounded-full px-4 py-1
                   flex items-center gap-2 drop-shadow">
-        <!-- 指アイコン -->
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-            class="[animation:hintFade_2s_ease-in-out_infinite]">
+             class="[animation:hintFade_2s_ease-in-out_infinite]">
           <path d="M9 11V6a2 2 0 1 1 4 0v5h1.5V8.5a2 2 0 1 1 4 0V13a6.5 6.5 0 0 1-6.5 6.5H10A5 5 0 0 1 5 14v-1a2 2 0 1 1 4 0v-2h0Z"/>
         </svg>
-        <!-- スワイプ矢印 -->
         <div class="relative w-10 h-2">
           <span class="absolute inset-y-0 left-0 inline-block w-2 h-2 rounded-full bg-white/80
                       [animation:swipe_1.6s_ease-in-out_infinite]"></span>
@@ -108,16 +114,16 @@
       </div>
     </div>
 
-    <!-- 情報カード (SPで非表示) -->
+    <!-- 情報カード -->
     <div id="info-left"
-        class="absolute top-1/3 left-[6%] w-[260px] md:w-[320px] bg-white text-[#0E2B64]
+         class="absolute top-1/3 left-[6%] w-[260px] md:w-[320px] bg-white text-[#0E2B64]
                 rounded-lg shadow-lg p-4 z-40 hidden md:block">
       <p class="text-sm md:text-base font-semibold mb-1">衛星アンテナユニット</p>
       <p class="text-xs md:text-sm opacity-80">自動展開・自動追尾で短時間で回線確立。</p>
     </div>
 
     <div id="info-right"
-        class="absolute top-1/3 right-[6%] w-[260px] md:w-[320px] bg-white text-[#0E2B64]
+         class="absolute top-1/3 right-[6%] w-[260px] md:w-[320px] bg-white text-[#0E2B64]
                 rounded-lg shadow-lg p-4 z-40 hidden md:block">
       <p class="text-sm md:text-base font-semibold mb-1">機材ラック／配信装置</p>
       <p class="text-xs md:text-sm opacity-80">映像を遠隔拠点へライブ伝送。</p>
@@ -146,21 +152,15 @@
     <h2 class="text-2xl md:text-4xl font-bold mb-8 text-center">今すぐ衛星通信車を手配</h2>
 
     <div class="relative isolate">
-      <!-- バッジ -->
       <span class="absolute -top-4 -left-4 z-20 bg-[#FFA800] text-[#0E2B64]
-                  text-xs px-3 py-1 rounded shadow font-semibold pointer-events-none">
-        緊急対応
-      </span>
+                  text-xs px-3 py-1 rounded shadow font-semibold pointer-events-none">緊急対応</span>
 
-      <!-- ボタン -->
       <a href="#contact"
          class="group relative z-10 inline-flex h-12 items-center justify-center overflow-hidden
                 rounded-md bg-red-600 px-7 font-semibold text-white shadow transition
                 hover:scale-[1.03] hover:bg-red-700 active:bg-red-800
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-300">
         <span>今すぐ依頼する</span>
-
-        <!-- ハイライト -->
         <div class="pointer-events-none absolute inset-0 z-0 flex h-full w-full justify-center
                     [transform:skew(-12deg)_translateX(-100%)]
                     group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
@@ -175,38 +175,26 @@
     フッター情報
   </footer>
 
-  <!-- three.js ロジック -->
-  <script type="module" src="./main.js?v=9"></script>
-
-  <!-- Mobile Nav Script -->
+  <!-- 開閉制御 -->
   <script>
-    (function () {
-      const toggle = document.getElementById('nav-toggle');
-      const drawer = document.getElementById('mobile-menu');
-
-      function setOpen(isOpen) {
-        toggle.classList.toggle('open', isOpen);
-        toggle.setAttribute('aria-expanded', String(isOpen));
-        drawer.classList.toggle('pointer-events-none', !isOpen);
-        drawer.classList.toggle('opacity-0', !isOpen);
-        drawer.classList.toggle('translate-y-[-8px]', !isOpen);
+    (function(){
+      const btn  = document.getElementById('nav-toggle');
+      const list = document.getElementById('main-nav');
+      function setOpen(open){
+        btn?.classList.toggle('open', open);
+        btn?.setAttribute('aria-expanded', String(open));
+        list?.classList.toggle('pointer-events-none', !open);
+        list?.classList.toggle('opacity-0', !open);
+        list?.classList.toggle('-translate-y-2', !open);
       }
-
-      toggle?.addEventListener('click', () => {
-        const next = !(toggle.classList.contains('open'));
-        setOpen(next);
-      });
-
-      drawer?.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') setOpen(false);
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') setOpen(false);
-      });
-
-      window.addEventListener('scroll', () => setOpen(false), { passive: true });
+      btn?.addEventListener('click', () => setOpen(!btn.classList.contains('open')));
+      window.addEventListener('scroll', () => setOpen(false), {passive:true});
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+      list?.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
     })();
   </script>
+
+  <!-- three.js ロジック -->
+  <script type="module" src="./main.js?v=9"></script>
 </body>
 </html>
