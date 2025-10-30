@@ -194,40 +194,40 @@
     })();
   </script>
 
-  <!-- ヘッダー色の自動反転  -->
+  <!-- ヘッダー色の自動反転 -->
   <script>
     (function () {
-    const header = document.querySelector('header');
-    const btn = document.getElementById('nav-toggle');
-    const list = document.getElementById('main-nav');
-    const hero = document.getElementById('hero');
+      const header = document.querySelector('header');
+      const btn = document.getElementById('nav-toggle');
+      const list = document.getElementById('main-nav');
+      const hero = document.getElementById('hero');
 
-    if (!header || !hero) return;
+      if (!header || !hero) return;
 
-    // ヒーローの下端に差し掛かったら切替
-    const observer = new IntersectionObserver(([entry]) => {
-      const onHero = entry.isIntersecting;
+      // ヒーローの下端に差し掛かったら切替（ヘッダー高さ分 余裕をみる）
+      const observer = new IntersectionObserver(([entry]) => {
+        const onHero = entry.isIntersecting; // ヒーロー内にいるか判定
 
-      // ヘッダー本体の色と背景
-      header.classList.toggle('text-white',  onHero);
-      header.classList.toggle('text-gray-900', !onHero);
-      header.classList.toggle('bg-transparent', onHero);
-      header.classList.toggle('bg-white/90',  !onHero);
-      header.classList.toggle('backdrop-blur', !onHero);
-      header.classList.toggle('border-b',      !onHero);
-      header.classList.toggle('border-black/10', !onHero);
-      header.classList.toggle('shadow-sm',     !onHero);
+        // ヘッダー本体の色と背景
+        header.classList.toggle('text-white',  onHero);
+        header.classList.toggle('text-gray-900', !onHero);
+        header.classList.toggle('bg-transparent', onHero);
+        header.classList.toggle('bg-white/90',  !onHero);
+        header.classList.toggle('backdrop-blur', !onHero);
+        header.classList.toggle('border-b',      !onHero);
+        header.classList.toggle('border-black/10', !onHero);
+        header.classList.toggle('shadow-sm',     !onHero);
 
-      // ハンバーガー（三本線）の色
-      btn?.classList.toggle('text-white',  onHero);
-      btn?.classList.toggle('text-gray-900', !onHero);
+        // ハンバーガー（三本線）の色
+        btn?.classList.toggle('text-white',  onHero);
+        btn?.classList.toggle('text-gray-900', !onHero);
 
-      list?.classList.toggle('md:!text-white',     onHero);
-      list?.classList.toggle('md:!text-gray-900', !onHero);
+        list?.classList.toggle('md:!text-white',     onHero);
+        list?.classList.toggle('md:!text-gray-900', !onHero);
       }, {
-      // ヘッダー高さ分だけ判定を前倒し
-      rootMargin: '-80px 0px 0px 0px',
-      threshold: 0
+        // ヘッダー高さ分だけ判定を前倒し
+        rootMargin: '-80px 0px 0px 0px',
+        threshold: 0
       });
 
       observer.observe(hero);
