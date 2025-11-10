@@ -1,380 +1,380 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>衛星モバイル伝送出張サービス</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>衛星モバイル伝送出張サービス</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    .clip-hero { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
-    .clip-cta  { clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); }
+    <style>
+      .clip-hero { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+      .clip-cta  { clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); }
 
-    @keyframes swipe {
-      0%   { transform: translateX(-8px); opacity: .6; }
-      50%  { transform: translateX( 8px); opacity: 1;  }
-      100% { transform: translateX(-8px); opacity: .6; }
-    }
-    @keyframes hintFade {
-      0%,100% { opacity: .85; }
-      50%     { opacity: 1; }
-    }
+      @keyframes swipe {
+        0%   { transform: translateX(-8px); opacity: .6; }
+        50%  { transform: translateX( 8px); opacity: 1;  }
+        100% { transform: translateX(-8px); opacity: .6; }
+      }
+      @keyframes hintFade {
+        0%,100% { opacity: .85; }
+        50%     { opacity: 1; }
+      }
 
-    /* Hamburger to X */
-    #nav-toggle .bar.middle { transform: translateY(0); }
-    #nav-toggle .bar.top    { transform: translateY(-7px); }
-    #nav-toggle .bar.bottom { transform: translateY( 7px); }
-    #nav-toggle.open .bar.middle { opacity: 0; }
-    #nav-toggle.open .bar.top    { transform: translateY(0) rotate(45deg); }
-    #nav-toggle.open .bar.bottom { transform: translateY(0) rotate(-45deg); }
-  </style>
-</head>
+      /* Hamburger to X */
+      #nav-toggle .bar.middle { transform: translateY(0); }
+      #nav-toggle .bar.top    { transform: translateY(-7px); }
+      #nav-toggle .bar.bottom { transform: translateY( 7px); }
+      #nav-toggle.open .bar.middle { opacity: 0; }
+      #nav-toggle.open .bar.top    { transform: translateY(0) rotate(45deg); }
+      #nav-toggle.open .bar.bottom { transform: translateY(0) rotate(-45deg); }
+    </style>
+  </head>
 
-<body class="font-sans text-gray-900 antialiased"
-      style="font-family:'Noto Sans JP','Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',sans-serif;">
+  <body class="font-sans text-gray-900 antialiased"
+        style="font-family:'Noto Sans JP','Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',sans-serif;">
 
-  <!-- ヘッダー -->
-  <header class="fixed inset-x-0 top-0 z-[80] text-white transition-colors duration-200">
-    <div class="mx-auto w-full px-5 pt-3 md:px-[50px] md:pt-[40px]">
-      <div class="flex items-start md:items-center justify-between">
-        <!-- ロゴ -->
-        <div class="select-none leading-tight">
-          <div class="font-extrabold text-[16px] md:text-[18px]">
-            衛星モバイル伝送出張サービス
+    <!-- ヘッダー -->
+    <header class="fixed inset-x-0 top-0 z-[80] text-white transition-colors duration-200">
+      <div class="mx-auto w-full px-5 pt-3 md:px-[50px] md:pt-[40px]">
+        <div class="flex items-start md:items-center justify-between">
+          <!-- ロゴ -->
+          <div class="select-none leading-tight">
+            <div class="font-extrabold text-[16px] md:text-[18px]">
+              衛星モバイル伝送出張サービス
+            </div>
+            <div class="font-extrabold text-[12px] md:text-[14px] opacity-90">
+              by スカイネットワーク株式会社
+            </div>
           </div>
-          <div class="font-extrabold text-[12px] md:text-[14px] opacity-90">
-            by スカイネットワーク株式会社
+
+          <!-- ハンバーガー(三本線) -->
+          <button id="nav-toggle"
+                  class="md:hidden relative h-10 w-10 grid place-items-center text-white -mt-1 mr-1"
+                  aria-label="メニュー" aria-expanded="false" aria-controls="main-nav">
+            <span class="sr-only">メニュー</span>
+            <span class="bar top    absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
+            <span class="bar middle absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
+            <span class="bar bottom absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
+          </button>
+        </div>
+      </div>
+
+      <nav aria-label="メインナビ"
+          class="md:absolute md:top-[40px] md:right-[50px] md:mx-0">
+        <ul id="main-nav"
+            class="fixed inset-x-3 top-[68px] md:static
+                  pointer-events-none opacity-0 -translate-y-2 transition-all duration-300
+                  md:pointer-events-auto md:opacity-100 md:translate-y-0
+                  bg-white text-gray-900 md:bg-transparent md:text-white
+                  rounded-xl border border-black/10 shadow md:rounded-none md:border-0 md:shadow-none
+                  grid gap-1 p-2 md:p-0 md:flex md:items-center md:gap-[50px]">
+          <li><a href="#service" class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">サービス概要</a></li>
+          <li><a href="#pricing" class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">料金</a></li>
+          <li><a href="#contact" class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ヒーローエリア -->
+    <section
+      id="hero"
+      class="clip-hero relative z-10 min-h-[80vh] md:min-h-[100vh] overflow-hidden bg-[#4A7CD8] text-white pb-16 md:pb-20 group"
+      data-glb="./assets/antenna_car_model_v1.glb"
+    >
+      <!-- キャンバス -->
+      <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-[10]"></canvas>
+
+      <!-- キャッチコピー -->
+      <div class="absolute inset-x-0 top-24 px-6 text-center pointer-events-none z-20">
+        <h1 class="font-bold text-[32px] md:text-[57px] tracking-wide drop-shadow">
+          現場の“今”を、<br class="md:hidden">遠隔でつなぐ。
+        </h1>
+      </div>
+
+      <!-- ドラッグヒント -->
+      <div id="drag-hint"
+          class="absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2
+                z-[60] pointer-events-none transition-opacity duration-700 opacity-90">
+        <div class="bg-white/25 text-white backdrop-blur-sm rounded-full px-4 py-1
+                    flex items-center gap-2 drop-shadow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+              class="[animation:hintFade_2s_ease-in-out_infinite]">
+            <path d="M9 11V6a2 2 0 1 1 4 0v5h1.5V8.5a2 2 0 1 1 4 0V13a6.5 6.5 0 0 1-6.5 6.5H10A5 5 0 0 1 5 14v-1a2 2 0 1 1 4 0v-2h0Z"/>
+          </svg>
+          <div class="relative w-10 h-2">
+            <span class="absolute inset-y-0 left-0 inline-block w-2 h-2 rounded-full bg-white/80
+                        [animation:swipe_1.6s_ease-in-out_infinite]"></span>
+            <span class="absolute inset-y-0 right-0 inline-block w-2 h-2 rounded-full bg-white/50"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 情報カード -->
+      <div id="info-left"
+          class="absolute top-1/3 left-[6%] w-[260px] md:w-[320px] bg-white text-[#0E2B64]
+                  rounded-lg shadow-lg p-4 z-40 hidden md:block">
+        <p class="text-sm md:text-base font-semibold mb-1">衛星アンテナユニット</p>
+        <p class="text-xs md:text-sm opacity-80">自動展開・自動追尾で短時間で回線確立。</p>
+      </div>
+
+      <div id="info-right"
+          class="absolute top-1/3 right-[6%] w-[260px] md:w-[320px] bg-white text-[#0E2B64]
+                  rounded-lg shadow-lg p-4 z-40 hidden md:block">
+        <p class="text-sm md:text-base font-semibold mb-1">機材ラック／配信装置</p>
+        <p class="text-xs md:text-sm opacity-80">映像を遠隔拠点へライブ伝送。</p>
+      </div>
+
+      <div class="h-10"></div>
+    </section>
+
+    <!-- 問題と解決 -->
+    <section
+      id="problem"
+      class="relative bg-white text-gray-900"
+      style="padding-top:100px;padding-bottom:100px;"
+    >
+      <div class="mx-auto max-w-[1234px] px-6">
+
+        <!-- 見出し -->
+        <div class="text-center">
+          <h2 class="font-extrabold text-[#333] text-[24px] md:text-[42px] leading-tight">
+            こんなお悩みありませんか？
+          </h2>
+
+          <!-- 下線 + センターポリゴン -->
+          <div class="relative mx-auto mt-[40px] w-[710px] max-w-full">
+            <span class="block h-[3px] w-full bg-[#000]/90"></span>
+            <svg
+              class="mx-auto -mb-[2px] w-[50px] h-[20px] md:w-[85px] md:h-[34.36px]"
+              viewBox="0 0 85 34.36"
+              aria-hidden="true"
+            >
+              <polygon points="42.5,34.36 0,0 85,0" fill="#111" />
+            </svg>
           </div>
         </div>
 
-        <!-- ハンバーガー(三本線) -->
-        <button id="nav-toggle"
-                class="md:hidden relative h-10 w-10 grid place-items-center text-white -mt-1 mr-1"
-                aria-label="メニュー" aria-expanded="false" aria-controls="main-nav">
-          <span class="sr-only">メニュー</span>
-          <span class="bar top    absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
-          <span class="bar middle absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
-          <span class="bar bottom absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
-        </button>
-      </div>
-    </div>
+        <!-- お悩み3カラム -->
+        <div class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+          <!-- 1: 高い -->
+          <div class="flex flex-col items-center text-center">
+            <div class="relative w-[307px] md:w-[348px] max-w-full">
+              <div
+                class="w-full h-[100px] md:h-[124px]
+                      rounded-[16px] border-[2px] md:border-[3px]
+                      border-[#0E2B64] grid place-items-center px-4 bg-white"
+              >
+                <p
+                  class="font-semibold text-[16px] md:text-[20px]
+                        text-[#0E2B64] leading-snug"
+                >
+                  通信機材を買うには<br class="hidden md:block">高すぎる…
+                </p>
+              </div>
+              <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6
+                        bg-white rotate-45 border-[2px] md:border-[3px]
+                        border-t-0 border-l-0 border-[#0E2B64]">
+              </div>
+            </div>
 
-    <nav aria-label="メインナビ"
-        class="md:absolute md:top-[40px] md:right-[50px] md:mx-0">
-      <ul id="main-nav"
-          class="fixed inset-x-3 top-[68px] md:static
-                pointer-events-none opacity-0 -translate-y-2 transition-all duration-300
-                md:pointer-events-auto md:opacity-100 md:translate-y-0
-                bg-white text-gray-900 md:bg-transparent md:text-white
-                rounded-xl border border-black/10 shadow md:rounded-none md:border-0 md:shadow-none
-                grid gap-1 p-2 md:p-0 md:flex md:items-center md:gap-[50px]">
-        <li><a href="#service" class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">サービス概要</a></li>
-        <li><a href="#pricing" class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">料金</a></li>
-        <li><a href="#contact" class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">お問い合わせ</a></li>
-      </ul>
-    </nav>
-  </header>
+            <img
+              src="img/problem-highcost.png"
+              alt="コストの悩み"
+              class="mt-6 md:mt-8 h-[100px] md:h-[145px] object-contain select-none"
+            />
+          </div>
 
-  <!-- ヒーローエリア -->
-  <section
-    id="hero"
-    class="clip-hero relative z-10 min-h-[80vh] md:min-h-[100vh] overflow-hidden bg-[#4A7CD8] text-white pb-16 md:pb-20 group"
-    data-glb="./assets/antenna_car_model_v1.glb"
-  >
-    <!-- キャンバス -->
-    <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-[10]"></canvas>
+          <!-- 2: すぐ届けたい -->
+          <div class="flex flex-col items-center text-center">
+            <div class="relative w-[307px] md:w-[348px] max-w-full">
+              <div
+                class="w-full h-[100px] md:h-[124px]
+                      rounded-[16px] border-[2px] md:border-[3px]
+                      border-[#0E2B64] grid place-items-center px-4 bg-white"
+              >
+                <p
+                  class="font-semibold text-[16px] md:text-[20px]
+                        text-[#0E2B64] leading-snug"
+                >
+                  現場の映像をすぐに届けたい
+                </p>
+              </div>
+              <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6
+                        bg-white rotate-45 border-[2px] md:border-[3px]
+                        border-t-0 border-l-0 border-[#0E2B64]">
+              </div>
+            </div>
 
-    <!-- キャッチコピー -->
-    <div class="absolute inset-x-0 top-24 px-6 text-center pointer-events-none z-20">
-      <h1 class="font-bold text-[32px] md:text-[57px] tracking-wide drop-shadow">
-        現場の“今”を、<br class="md:hidden">遠隔でつなぐ。
-      </h1>
-    </div>
+            <img
+              src="img/problem-delivery.png"
+              alt="映像を届けたい悩み"
+              class="mt-6 md:mt-8 h-[100px] md:h-[145px] object-contain select-none"
+            />
+          </div>
 
-    <!-- ドラッグヒント -->
-    <div id="drag-hint"
-        class="absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2
-               z-[60] pointer-events-none transition-opacity duration-700 opacity-90">
-      <div class="bg-white/25 text-white backdrop-blur-sm rounded-full px-4 py-1
-                  flex items-center gap-2 drop-shadow">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-             class="[animation:hintFade_2s_ease-in-out_infinite]">
-          <path d="M9 11V6a2 2 0 1 1 4 0v5h1.5V8.5a2 2 0 1 1 4 0V13a6.5 6.5 0 0 1-6.5 6.5H10A5 5 0 0 1 5 14v-1a2 2 0 1 1 4 0v-2h0Z"/>
-        </svg>
-        <div class="relative w-10 h-2">
-          <span class="absolute inset-y-0 left-0 inline-block w-2 h-2 rounded-full bg-white/80
-                      [animation:swipe_1.6s_ease-in-out_infinite]"></span>
-          <span class="absolute inset-y-0 right-0 inline-block w-2 h-2 rounded-full bg-white/50"></span>
+          <!-- 3: DXの始め方 -->
+          <div class="flex flex-col items-center text-center">
+            <div class="relative w-[307px] md:w-[348px] max-w-full">
+              <div
+                class="w-full h-[100px] md:h-[124px]
+                      rounded-[16px] border-[2px] md:border-[3px]
+                      border-[#0E2B64] grid place-items-center px-4 bg-white"
+              >
+                <p
+                  class="font-semibold text-[16px] md:text-[20px]
+                        text-[#0E2B64] leading-snug"
+                >
+                  DX化対応を急ぎたいが、<br class="hidden md:block">
+                  何から始めていいか分からない
+                </p>
+              </div>
+              <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6
+                        bg-white rotate-45 border-[2px] md:border-[3px]
+                        border-t-0 border-l-0 border-[#0E2B64]">
+              </div>
+            </div>
+
+            <img
+              src="img/problem-dxstart.png"
+              alt="DX対応の悩み"
+              class="mt-6 md:mt-8 h-[100px] md:h-[145px] object-contain select-none"
+            />
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- 情報カード -->
-    <div id="info-left"
-         class="absolute top-1/3 left-[6%] w-[260px] md:w-[320px] bg-white text-[#0E2B64]
-                rounded-lg shadow-lg p-4 z-40 hidden md:block">
-      <p class="text-sm md:text-base font-semibold mb-1">衛星アンテナユニット</p>
-      <p class="text-xs md:text-sm opacity-80">自動展開・自動追尾で短時間で回線確立。</p>
-    </div>
-
-    <div id="info-right"
-         class="absolute top-1/3 right-[6%] w-[260px] md:w-[320px] bg-white text-[#0E2B64]
-                rounded-lg shadow-lg p-4 z-40 hidden md:block">
-      <p class="text-sm md:text-base font-semibold mb-1">機材ラック／配信装置</p>
-      <p class="text-xs md:text-sm opacity-80">映像を遠隔拠点へライブ伝送。</p>
-    </div>
-
-    <div class="h-10"></div>
-  </section>
-
-  <!-- 問題と解決 -->
-  <section
-    id="problem"
-    class="relative bg-white text-gray-900"
-    style="padding-top:100px;padding-bottom:100px;"
-  >
-    <div class="mx-auto max-w-[1234px] px-6">
-
-      <!-- 見出し -->
-      <div class="text-center">
-        <h2 class="font-extrabold text-[#333] text-[24px] md:text-[42px] leading-tight">
-          こんなお悩みありませんか？
-        </h2>
-
-        <!-- 下線 + センターポリゴン -->
-        <div class="relative mx-auto mt-[40px] w-[710px] max-w-full">
-          <span class="block h-[3px] w-full bg-[#000]/90"></span>
+        <!-- 下向きポリゴン -->
+        <div class="mt-8 flex justify-center">
           <svg
-            class="mx-auto -mb-[2px] w-[50px] h-[20px] md:w-[85px] md:h-[34.36px]"
+            class="w-[50px] h-[20px] md:w-[85px] md:h-[34.36px]"
             viewBox="0 0 85 34.36"
             aria-hidden="true"
           >
             <polygon points="42.5,34.36 0,0 85,0" fill="#111" />
           </svg>
         </div>
-      </div>
 
-      <!-- お悩み3カラム -->
-      <div class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
-        <!-- 1: 高い -->
-        <div class="flex flex-col items-center text-center">
-          <div class="relative w-[307px] md:w-[348px] max-w-full">
-            <div
-              class="w-full h-[100px] md:h-[124px]
-                    rounded-[16px] border-[2px] md:border-[3px]
-                    border-[#0E2B64] grid place-items-center px-4 bg-white"
-            >
-              <p
-                class="font-semibold text-[16px] md:text-[20px]
-                      text-[#0E2B64] leading-snug"
-              >
-                通信機材を買うには<br class="hidden md:block">高すぎる…
-              </p>
-            </div>
-            <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6
-                      bg-white rotate-45
-                      border-[3px] border-t-0 border-l-0 border-[#0E2B64]">
-            </div>
-          </div>
-
-          <img
-            src="img/problem-highcost.png"
-            alt="コストの悩み"
-            class="mt-6 md:mt-8 h-[100px] md:h-[145px] object-contain select-none"
-          />
-        </div>
-
-        <!-- 2: すぐ届けたい -->
-        <div class="flex flex-col items-center text-center">
-          <div class="relative w-[307px] md:w-[348px] max-w-full">
-            <div
-              class="w-full h-[100px] md:h-[124px]
-                    rounded-[16px] border-[2px] md:border-[3px]
-                    border-[#0E2B64] grid place-items-center px-4 bg-white"
-            >
-              <p
-                class="font-semibold text-[16px] md:text-[20px]
-                      text-[#0E2B64] leading-snug"
-              >
-                現場の映像をすぐに届けたい
-              </p>
-            </div>
-            <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6
-                      bg-white rotate-45
-                      border-[3px] border-t-0 border-l-0 border-[#0E2B64]">
-            </div>
-          </div>
-
-          <img
-            src="img/problem-delivery.png"
-            alt="映像を届けたい悩み"
-            class="mt-6 md:mt-8 h-[100px] md:h-[145px] object-contain select-none"
-          />
-        </div>
-
-        <!-- 3: DXの始め方 -->
-        <div class="flex flex-col items-center text-center">
-          <div class="relative w-[307px] md:w-[348px] max-w-full">
-            <div
-              class="w-full h-[100px] md:h-[124px]
-                    rounded-[16px] border-[2px] md:border-[3px]
-                    border-[#0E2B64] grid place-items-center px-4 bg-white"
-            >
-              <p
-                class="font-semibold text-[16px] md:text-[20px]
-                      text-[#0E2B64] leading-snug"
-              >
-                DX化対応を急ぎたいが、<br class="hidden md:block">
-                何から始めていいか分からない
-              </p>
-            </div>
-            <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6
-                      bg-white rotate-45
-                      border-[3px] border-t-0 border-l-0 border-[#0E2B64]">
-            </div>
-          </div>
-
-          <img
-            src="img/problem-dxstart.png"
-            alt="DX対応の悩み"
-            class="mt-6 md:mt-8 h-[100px] md:h-[145px] object-contain select-none"
-          />
-        </div>
-      </div>
-
-      <!-- 下向きポリゴン -->
-      <div class="mt-8 flex justify-center">
-        <svg
-          class="w-[50px] h-[20px] md:w-[85px] md:h-[34.36px]"
-          viewBox="0 0 85 34.36"
-          aria-hidden="true"
-        >
-          <polygon points="42.5,34.36 0,0 85,0" fill="#111" />
-        </svg>
-      </div>
-
-      <!-- 解決ボックス -->
-      <div class="mt-8 md:mt-10">
-        <div
-          class="mx-auto max-w-[1166px] bg-[#4A7CD8] rounded-lg shadow-md
-                px-4 py-6 md:px-10 md:py-10
-                flex items-center justify-center"
-        >
-          <p
-            class="font-semibold text-white drop-shadow leading-snug text-left
-                  max-w-[758px]
-                  text-[16px] md:text-[30px]"
+        <!-- 解決ボックス -->
+        <div class="mt-8 md:mt-10">
+          <div
+            class="mx-auto max-w-[1166px] bg-[#4A7CD8] rounded-lg shadow-md
+                  px-4 py-6 md:px-10 md:py-10
+                  flex items-center justify-center"
           >
-            そんなお悩みに—<br>
-            必要な時だけ“出張型”で導入できる通信支援パック！<br>
-            公共工事の発注要件である“遠隔臨場”にも対応。<br>
-            ご予算に合わせて導入しやすく、経費処理も可能です。
-          </p>
+            <p
+              class="font-semibold text-white drop-shadow leading-snug text-left
+                    max-w-[758px]
+                    text-[16px] md:text-[30px]"
+            >
+              そんなお悩みに—<br>
+              必要な時だけ“出張型”で導入できる通信支援パック！<br>
+              公共工事の発注要件である“遠隔臨場”にも対応。<br>
+              ご予算に合わせて導入しやすく、経費処理も可能です。
+            </p>
+          </div>
         </div>
+
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- サービス -->
+    <section id="service" class="bg-[#F7F9FC] text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
+      <h2 class="text-3xl font-semibold text-center">サービス紹介</h2>
+    </section>
 
-  <!-- サービス -->
-  <section id="service" class="bg-[#F7F9FC] text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
-    <h2 class="text-3xl font-semibold text-center">サービス紹介</h2>
-  </section>
+    <!-- 料金 -->
+    <section id="pricing" class="bg-white text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
+      <h2 class="text-3xl font-semibold text-center">料金</h2>
+    </section>
 
-  <!-- 料金 -->
-  <section id="pricing" class="bg-white text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
-    <h2 class="text-3xl font-semibold text-center">料金</h2>
-  </section>
+    <!-- 問い合わせ -->
+    <section id="contact" class="clip-cta bg-[#4A7CD8] text-white flex flex-col items-center justify-center py-20 md:py-28 px-6">
+      <h2 class="text-2xl md:text-4xl font-bold mb-8 text-center">今すぐ衛星通信車を手配</h2>
 
-  <!-- 問い合わせ -->
-  <section id="contact" class="clip-cta bg-[#4A7CD8] text-white flex flex-col items-center justify-center py-20 md:py-28 px-6">
-    <h2 class="text-2xl md:text-4xl font-bold mb-8 text-center">今すぐ衛星通信車を手配</h2>
+      <div class="relative isolate">
+        <span class="absolute -top-4 -left-4 z-20 bg-[#FFA800] text-[#0E2B64]
+                    text-xs px-3 py-1 rounded shadow font-semibold pointer-events-none">緊急対応</span>
 
-    <div class="relative isolate">
-      <span class="absolute -top-4 -left-4 z-20 bg-[#FFA800] text-[#0E2B64]
-                  text-xs px-3 py-1 rounded shadow font-semibold pointer-events-none">緊急対応</span>
+        <a href="#contact"
+          class="group relative z-10 inline-flex h-12 md:h-14 items-center justify-center overflow-hidden
+                  rounded-md md:rounded-lg bg-red-600 px-7 md:px-12 font-semibold
+                  text-white text-base md:text-lg shadow md:shadow-lg transition
+                  hover:scale-[1.03] hover:bg-red-700 active:bg-red-800
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-300">
+          <span>今すぐ依頼する</span>
+          <div class="pointer-events-none absolute inset-0 z-0 flex h-full w-full justify-center
+                      [transform:skew(-12deg)_translateX(-100%)]
+                      group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
+            <div class="relative h-full w-8 bg-white/20"></div>
+          </div>
+        </a>
+      </div>
+    </section>
 
-      <a href="#contact"
-         class="group relative z-10 inline-flex h-12 md:h-14 items-center justify-center overflow-hidden
-                rounded-md md:rounded-lg bg-red-600 px-7 md:px-12 font-semibold
-                text-white text-base md:text-lg shadow md:shadow-lg transition
-                hover:scale-[1.03] hover:bg-red-700 active:bg-red-800
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-300">
-        <span>今すぐ依頼する</span>
-        <div class="pointer-events-none absolute inset-0 z-0 flex h-full w-full justify-center
-                    [transform:skew(-12deg)_translateX(-100%)]
-                    group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
-          <div class="relative h-full w-8 bg-white/20"></div>
-        </div>
-      </a>
-    </div>
-  </section>
+    <!-- フッター -->
+    <footer class="bg-gray-900 text-white text-center py-6 px-6">
+      フッター情報
+    </footer>
 
-  <!-- フッター -->
-  <footer class="bg-gray-900 text-white text-center py-6 px-6">
-    フッター情報
-  </footer>
+    <!-- 開閉制御 -->
+    <script>
+      (function(){
+        const btn  = document.getElementById('nav-toggle');
+        const list = document.getElementById('main-nav');
+        function setOpen(open){
+          btn?.classList.toggle('open', open);
+          btn?.setAttribute('aria-expanded', String(open));
+          list?.classList.toggle('pointer-events-none', !open);
+          list?.classList.toggle('opacity-0', !open);
+          list?.classList.toggle('-translate-y-2', !open);
+        }
+        btn?.addEventListener('click', () => setOpen(!btn.classList.contains('open')));
+        window.addEventListener('scroll', () => setOpen(false), {passive:true});
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+        list?.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
+      })();
+    </script>
 
-  <!-- 開閉制御 -->
-  <script>
-    (function(){
-      const btn  = document.getElementById('nav-toggle');
-      const list = document.getElementById('main-nav');
-      function setOpen(open){
-        btn?.classList.toggle('open', open);
-        btn?.setAttribute('aria-expanded', String(open));
-        list?.classList.toggle('pointer-events-none', !open);
-        list?.classList.toggle('opacity-0', !open);
-        list?.classList.toggle('-translate-y-2', !open);
-      }
-      btn?.addEventListener('click', () => setOpen(!btn.classList.contains('open')));
-      window.addEventListener('scroll', () => setOpen(false), {passive:true});
-      document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
-      list?.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
-    })();
-  </script>
+    <!-- ヘッダー色の自動反転 -->
+    <script>
+      (function () {
+        const header = document.querySelector('header');
+        const btn    = document.getElementById('nav-toggle');
+        const list   = document.getElementById('main-nav');
+        const hero   = document.getElementById('hero');
+        if (!header || !hero) return;
 
-  <!-- ヘッダー色の自動反転 -->
-  <script>
-    (function () {
-      const header = document.querySelector('header');
-      const btn    = document.getElementById('nav-toggle');
-      const list   = document.getElementById('main-nav');
-      const hero   = document.getElementById('hero');
-      if (!header || !hero) return;
+        const observer = new IntersectionObserver(([entry]) => {
+            const onHero = entry.isIntersecting;
 
-      const observer = new IntersectionObserver(([entry]) => {
-          const onHero = entry.isIntersecting;
+            // 背景と文字色
+            header.classList.toggle('text-white',     onHero);
+            header.classList.toggle('text-gray-900', !onHero);
 
-          // 背景と文字色
-          header.classList.toggle('text-white',     onHero);
-          header.classList.toggle('text-gray-900', !onHero);
+            header.classList.toggle('bg-transparent', onHero);
+            header.classList.toggle('bg-white',      !onHero);
 
-          header.classList.toggle('bg-transparent', onHero);
-          header.classList.toggle('bg-white',      !onHero);
+            // 不要クラスを外す
+            header.classList.remove('bg-white/90', 'backdrop-blur', 'shadow', 'shadow-sm');
 
-          // 不要クラスを外す
-          header.classList.remove('bg-white/90', 'backdrop-blur', 'shadow', 'shadow-sm');
+            // ハンバーガーの色
+            btn?.classList.toggle('text-white',     onHero);
+            btn?.classList.toggle('text-gray-900', !onHero);
 
-          // ハンバーガーの色
-          btn?.classList.toggle('text-white',     onHero);
-          btn?.classList.toggle('text-gray-900', !onHero);
+            // PCナビの色
+            list?.classList.toggle('md:!text-white',     onHero);
+            list?.classList.toggle('md:!text-gray-900', !onHero);
+          }, { rootMargin: '-80px 0px 0px 0px', threshold: 0 });
 
-          // PCナビの色
-          list?.classList.toggle('md:!text-white',     onHero);
-          list?.classList.toggle('md:!text-gray-900', !onHero);
-        }, { rootMargin: '-80px 0px 0px 0px', threshold: 0 });
+          observer.observe(hero);
+      })();
+    </script>
 
-        observer.observe(hero);
-    })();
-  </script>
-
-  <!-- three.jsロジック -->
-  <script type="module" src="./main.js?v=9"></script>
-</body>
+    <!-- three.jsロジック -->
+    <script type="module" src="./main.js?v=9"></script>
+  </body>
 </html>
