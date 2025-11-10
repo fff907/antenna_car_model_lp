@@ -132,7 +132,7 @@
     <div class="h-10"></div>
   </section>
 
- <!-- 問題と解決 -->
+  <!-- 問題と解決 -->
   <section
     id="problem"
     class="relative bg-white text-gray-900"
@@ -142,16 +142,18 @@
 
       <!-- 見出し -->
       <div class="text-center">
-        <h2 class="font-extrabold text-[#333] text-[28px] md:text-[42px] leading-tight">
+        <h2 class="font-extrabold text-[#333] text-[24px] md:text-[42px] leading-tight">
           こんなお悩みありませんか？
         </h2>
 
-        <!-- 下線(710px) + センターポリゴン(85x34.36) -->
+        <!-- 下線(710px) + センターポリゴン -->
         <div class="relative mx-auto mt-[40px] w-[710px] max-w-full">
-          <!-- 下線 -->
           <span class="block h-[3px] w-full bg-[#000]/90"></span>
-          <!-- ポリゴン -->
-          <svg class="mx-auto -mb-[2px] w-[85px] h-[34.36px]" viewBox="0 0 85 34.36" aria-hidden="true">
+          <svg
+            class="mx-auto -mb-[2px] w-[50px] h-[20px] md:w-[85px] md:h-[34.36px]"
+            viewBox="0 0 85 34.36"
+            aria-hidden="true"
+          >
             <polygon points="42.5,34.36 0,0 85,0" fill="#111" />
           </svg>
         </div>
@@ -161,64 +163,104 @@
       <div class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
         <!-- 1: 高い -->
         <div class="flex flex-col items-center text-center">
-          <!-- 吹き出し：307px -->
           <div class="relative w-[307px] max-w-full">
-            <div class="w-full h-[124px] rounded-[16px] border-[3px] border-[#0E2B64] grid place-items-center px-4 bg-white">
-              <p class="font-semibold text-[18px] md:text-[20px] text-[#0E2B64] leading-snug">
+            <div
+              class="w-full h-[100px] md:h-[124px]
+                    rounded-[16px] border-[2px] md:border-[3px]
+                    border-[#0E2B64] grid place-items-center px-4 bg-white"
+            >
+              <p
+                class="font-semibold text-[16px] md:text-[20px]
+                      text-[#0E2B64] leading-snug"
+              >
                 通信機材を買うには<br class="hidden md:block">高すぎる…
               </p>
             </div>
             <!-- 尻尾 -->
-            <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6
-                        bg-white rotate-45
-                        border-[3px] border-t-0 border-l-0 border-[#0E2B64]"></div>
+            <div
+              class="absolute -bottom-2 md:-bottom-3 left-1/2 -translate-x-1/2
+                    w-4 h-4 md:w-6 md:h-6
+                    bg-white rotate-45
+                    border-[2px] md:border-[3px] border-t-0 border-l-0 border-[#0E2B64]"
+            ></div>
           </div>
 
-          <!-- イラスト -->
-          <img src="img/problem-highcost.png" alt="コストの悩み"
-              class="mt-8 h-[120px] md:h-[145px] object-contain select-none" />
+          <img
+            src="img/problem-highcost.png"
+            alt="コストの悩み"
+            class="mt-6 md:mt-8 h-[100px] md:h-[145px] object-contain select-none"
+          />
         </div>
 
         <!-- 2: すぐ届けたい -->
         <div class="flex flex-col items-center text-center">
-          <!-- 吹き出し：348px -->
           <div class="relative w-[348px] max-w-full">
-            <div class="w-full h-[124px] rounded-[16px] border-[3px] border-[#0E2B64] grid place-items-center px-4 bg-white">
-              <p class="font-semibold text-[18px] md:text-[20px] text-[#0E2B64] leading-snug">
+            <div
+              class="w-full h-[100px] md:h-[124px]
+                    rounded-[16px] border-[2px] md:border-[3px]
+                    border-[#0E2B64] grid place-items-center px-4 bg-white"
+            >
+              <p
+                class="font-semibold text-[16px] md:text-[20px]
+                      text-[#0E2B64] leading-snug"
+              >
                 現場の映像をすぐに届けたい
               </p>
             </div>
-            <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6
-                        bg-white rotate-45
-                        border-[3px] border-t-0 border-l-0 border-[#0E2B64]"></div>
+            <div
+              class="absolute -bottom-2 md:-bottom-3 left-1/2 -translate-x-1/2
+                    w-4 h-4 md:w-6 md:h-6
+                    bg-white rotate-45
+                    border-[2px] md:border-[3px] border-t-0 border-l-0 border-[#0E2B64]"
+            ></div>
           </div>
 
-          <img src="img/problem-delivery.png" alt="映像を届けたい悩み"
-              class="mt-8 h-[120px] md:h-[145px] object-contain select-none" />
+          <img
+            src="img/problem-delivery.png"
+            alt="映像を届けたい悩み"
+            class="mt-6 md:mt-8 h-[100px] md:h-[145px] object-contain select-none"
+          />
         </div>
 
         <!-- 3: DXの始め方 -->
         <div class="flex flex-col items-center text-center">
-          <!-- 吹き出し：348px -->
           <div class="relative w-[348px] max-w-full">
-            <div class="w-full h-[124px] rounded-[16px] border-[3px] border-[#0E2B64] grid place-items-center px-4 bg-white">
-              <p class="font-semibold text-[18px] md:text-[20px] text-[#0E2B64] leading-snug">
-                DX化対応を急ぎたいが、<br class="hidden md:block">何から始めていいか分からない
+            <div
+              class="w-full h-[100px] md:h-[124px]
+                    rounded-[16px] border-[2px] md:border-[3px]
+                    border-[#0E2B64] grid place-items-center px-4 bg-white"
+            >
+              <p
+                class="font-semibold text-[16px] md:text-[20px]
+                      text-[#0E2B64] leading-snug"
+              >
+                DX化対応を急ぎたいが、<br class="hidden md:block">
+                何から始めていいか分からない
               </p>
             </div>
-            <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6
-                        bg-white rotate-45
-                        border-[3px] border-t-0 border-l-0 border-[#0E2B64]"></div>
+            <div
+              class="absolute -bottom-2 md:-bottom-3 left-1/2 -translate-x-1/2
+                    w-4 h-4 md:w-6 md:h-6
+                    bg-white rotate-45
+                    border-[2px] md:border-[3px] border-t-0 border-l-0 border-[#0E2B64]"
+            ></div>
           </div>
 
-          <img src="img/problem-dxstart.png" alt="DX対応の悩み"
-              class="mt-8 h-[120px] md:h-[145px] object-contain select-none" />
+          <img
+            src="img/problem-dxstart.png"
+            alt="DX対応の悩み"
+            class="mt-6 md:mt-8 h-[100px] md:h-[145px] object-contain select-none"
+          />
         </div>
       </div>
 
       <!-- 下向きポリゴン -->
       <div class="mt-8 flex justify-center">
-        <svg class="w-[85px] h-[34.36px]" viewBox="0 0 85 34.36" aria-hidden="true">
+        <svg
+          class="w-[50px] h-[20px] md:w-[85px] md:h-[34.36px]"
+          viewBox="0 0 85 34.36"
+          aria-hidden="true"
+        >
           <polygon points="42.5,34.36 0,0 85,0" fill="#111" />
         </svg>
       </div>
@@ -227,13 +269,13 @@
       <div class="mt-8 md:mt-10">
         <div
           class="mx-auto max-w-[1166px] bg-[#4A7CD8] rounded-lg shadow-md
-                px-6 py-7 md:px-10 md:py-10
+                px-4 py-6 md:px-10 md:py-10
                 flex items-center justify-center"
         >
-          <!-- テキストブロック -->
           <p
-            class="text-[30px] font-semibold text-white drop-shadow leading-snug
-                  text-left max-w-[758px]"
+            class="font-semibold text-white drop-shadow leading-snug text-left
+                  max-w-[758px]
+                  text-[16px] md:text-[30px]"
           >
             そんなお悩みに—<br>
             必要な時だけ“出張型”で導入できる通信支援パック！<br>
