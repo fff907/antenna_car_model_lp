@@ -477,26 +477,26 @@
       })();
     </script>
 
-    <!-- 3Dモデル読み込みのためのDRACOLoader設定 -->
+    <!-- 必要な外部ライブラリ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/DRACOLoader.js"></script>
 
     <script>
-      // DRACOLoaderを読み込む
-      const dracoLoader = new THREE.DRACOLoader();
+    // DRACOLoaderをインスタンス化
+    const dracoLoader = new THREE.DRACOLoader();
+    // GLTFLoaderをインスタンス化
+    const loader = new THREE.GLTFLoader();
 
-      // GLTFLoaderを作成
-      const loader = new THREE.GLTFLoader();
+    // GLTFLoaderにDRACOLoaderを設定
+    loader.setDRACOLoader(dracoLoader);
 
-      // GLTFLoaderにDRACOLoaderを設定
-      loader.setDRACOLoader(dracoLoader);
-
-      // GLBファイルの読み込み
-      loader.load('./assets/antenna_car_model_v1.glb', function (gltf) {
-        scene.add(gltf.scene); // 読み込んだ3Dモデルをシーンに追加
-      }, undefined, function (error) {
-        console.error(error); // エラーが発生した場合に表示
-      });
+    // GLBファイルの読み込み
+    loader.load('./assets/antenna_car_model_v1.glb', function (gltf) {
+      scene.add(gltf.scene); // 読み込んだ3Dモデルをシーンに追加
+    }, undefined, function (error) {
+      console.error(error); // エラーが発生した場合に表示
+    });
     </script>
 
     <!-- three.jsロジック -->
