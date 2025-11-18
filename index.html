@@ -89,6 +89,16 @@
       <!-- キャンバス -->
       <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-[10]"></canvas>
 
+      <!-- モデル表示（ここを追加） -->
+      <model-viewer 
+        src="./assets/antenna_car_model_v1.glb" 
+        alt="A 3D model"
+        auto-rotate
+        camera-controls
+        draco-decoder-url="https://cdn.jsdelivr.net/npm/three@0.132.0/examples/js/loaders/DRACOLoader.js"
+        class="absolute inset-0 w-full h-full z-[10]">
+      </model-viewer>
+
       <!-- キャッチコピー -->
       <div class="absolute inset-x-0 top-24 px-6 text-center pointer-events-none z-20">
         <h1 class="font-bold text-[32px] md:text-[57px] tracking-wide drop-shadow">
