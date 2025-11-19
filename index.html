@@ -420,39 +420,41 @@
               <div class="w-[800px] border-t-[3px] border-[#D1D5DB]"></div>
             </div>
 
-            <!-- 本体行 -->
+            <!-- 本体行＋真ん中のライン -->
             <div
-              class="mt-6 grid grid-cols-[1.1fr_1.5fr_1fr_1fr]
+              class="mt-6 grid 
+                    grid-cols-[1.1fr_1.5fr_1fr_1fr]
+                    grid-rows-[auto_auto_auto_auto]
                     gap-x-[40px] items-center"
             >
               <!-- 「1日あたりのレンタル料」 -->
-              <div class="row-span-2 leading-tight">
+              <div class="row-span-3 row-start-2 leading-tight">
                 <div>1日あたりの</div>
                 <div>レンタル料</div>
               </div>
 
-              <!-- オペレーター有無 -->
-              <div class="space-y-[50px] leading-tight">
-                <div>オペレーターなし</div>
-                <div>オペレーターあり</div>
+              <!-- 1段目：オペレーターなし行 -->
+              <div class="row-start-2">オペレーターなし</div>
+              <div class="row-start-2 text-center text-[24px] md:text-[28px]">
+                ¥45,000
+              </div>
+              <div class="row-start-2 text-center text-[24px] md:text-[28px]">
+                ¥43,000
               </div>
 
-              <!-- 金額（1日プラン） -->
-              <div class="space-y-[50px] text-center text-[24px] md:text-[28px]">
-                <div>¥45,000</div>
-                <div>¥70,000</div>
+              <!-- 真ん中のライン -->
+              <div class="row-start-3 col-start-2 col-span-3 mt-4">
+                <div class="w-[570px] border-t-[3px] border-[#D1D5DB] ml-auto"></div>
               </div>
 
-              <!-- 金額（1カ月プラン） -->
-              <div class="space-y-[50px] text-center text-[24px] md:text-[28px]">
-                <div>¥43,000</div>
-                <div>ー</div>
+              <!-- 2段目：オペレーターあり行 -->
+              <div class="row-start-4">オペレーターあり</div>
+              <div class="row-start-4 text-center text-[24px] md:text-[28px]">
+                ¥70,000
               </div>
-            </div>
-
-            <!-- 2本目ライン -->
-            <div class="mt-6 flex justify-end">
-              <div class="w-[570px] border-t-[3px] border-[#D1D5DB]"></div>
+              <div class="row-start-4 text-center text-[24px] md:text-[28px]">
+                ー
+              </div>
             </div>
           </div>
 
