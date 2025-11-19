@@ -16,7 +16,7 @@ const AUTOROTATE_SPEED = 0.8;       // 自動回転速度
 const IDLE_MS_TO_RESUME = 2500;     // 何ms操作が無ければ自動回転を再開するか
 let MODEL_LIFT = 0.5;               // モデルを持ち上げる量
 
-const glbRaw = hero?.dataset.glb || './assets/antenna_car_model_v1.glb';
+const glbRaw = hero?.dataset.glb || './assets/antenna_car_model_v2.glb';
 const glbURL = new URL(glbRaw, window.location.href).href;
 const initialYawDeg = Number(hero?.dataset.yaw ?? -35); // デフォルト角度
 
