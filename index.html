@@ -462,58 +462,55 @@
           <div class="block min-[1220px]:hidden mt-[30px] text-[#333] font-bold text-[16px] space-y-6">
 
             <!-- 1ブロック目：オペレーターなし -->
-            <div class="pt-4 border-t-[3px] border-[#D1D5DB]">
-              <p class="text-[15px] mb-2">1日あたりのレンタル料</p>
+            <div class="pt-4 border-t-[3px] border-[#D1D5DB] space-y-2">
+              <!-- 1行目：1日あたりのレンタル料 × ¥45,000（1日） -->
+              <div class="flex justify-between items-baseline gap-4">
+                <p class="text-[15px] mb-0">1日あたりのレンタル料</p>
+                <div class="flex items-baseline">
+                  <span class="inline-block w-[120px] text-left text-[20px] font-extrabold">
+                    ¥45,000
+                  </span>
+                  <span class="ml-[2px] text-[12px] font-normal">（1日）</span>
+                </div>
+              </div>
 
-              <div class="flex justify-between items-start gap-4">
-                <div>オペレーターなし</div>
-
-                <!-- 右側：金額カラム -->
-                <div class="flex justify-end">
-                  <div class="space-y-1">
-                    <div class="flex items-baseline">
-                      <span class="inline-block w-[120px] text-left text-[20px] font-extrabold">
-                        ¥45,000
-                      </span>
-                      <span class="ml-1 text-[12px] font-normal">（1日）</span>
-                    </div>
-                    <div class="flex items-baseline">
-                      <span class="inline-block w-[120px] text-left text-[20px] font-extrabold">
-                        ¥43,000
-                      </span>
-                      <span class="ml-1 text-[12px] font-normal">（1カ月）</span>
-                    </div>
-                  </div>
+              <!-- 2行目：オペレーターなし × ¥43,000（1カ月） -->
+              <div class="flex justify-between items-baseline gap-4">
+                <p class="text-[15px] mb-0">オペレーターなし</p>
+                <div class="flex items-baseline">
+                  <span class="inline-block w-[120px] text-left text-[20px] font-extrabold">
+                    ¥43,000
+                  </span>
+                  <span class="ml-[2px] text-[12px] font-normal">（1カ月）</span>
                 </div>
               </div>
             </div>
 
             <!-- 2ブロック目：オペレーターあり -->
-            <div class="pt-4 border-t-[3px] border-[#D1D5DB]">
-              <p class="text-[15px] mb-2">1日あたりのレンタル料</p>
+            <div class="pt-4 border-t-[3px] border-[#D1D5DB] space-y-2">
+              <!-- 1行目：1日あたりのレンタル料 × ¥70,000（1日） -->
+              <div class="flex justify-between items-baseline gap-4">
+                <p class="text-[15px] mb-0">1日あたりのレンタル料</p>
+                <div class="flex items-baseline">
+                  <span class="inline-block w-[120px] text-left text-[20px] font-extrabold">
+                    ¥70,000
+                  </span>
+                  <span class="ml-[2px] text-[12px] font-normal">（1日）</span>
+                </div>
+              </div>
 
-              <div class="flex justify-between items-start gap-4">
-                <div>オペレーターあり</div>
-
-                <!-- 右側：金額カラム -->
-                <div class="flex justify-end">
-                  <div class="space-y-1">
-                    <div class="flex items-baseline">
-                      <span class="inline-block w-[120px] text-left text-[20px] font-extrabold">
-                        ¥70,000
-                      </span>
-                      <span class="ml-1 text-[12px] font-normal">（1日）</span>
-                    </div>
-                    <div class="flex items-baseline">
-                      <span class="inline-block w-[120px] text-left text-[20px] font-extrabold">
-                        ー
-                      </span>
-                      <span class="ml-1 text-[12px] font-normal">（1カ月）</span>
-                    </div>
-                  </div>
+              <!-- 2行目：オペレーターあり × ー（1カ月） -->
+              <div class="flex justify-between items-baseline gap-4">
+                <p class="text-[15px] mb-0">オペレーターあり</p>
+                <div class="flex items-baseline">
+                  <span class="inline-block w-[120px] text-center text-[20px] font-extrabold">
+                    ー
+                  </span>
+                  <span class="ml-[2px] text-[12px] font-normal">（1カ月）</span>
                 </div>
               </div>
             </div>
+            
           </div>
 
           <!-- 注釈 -->
