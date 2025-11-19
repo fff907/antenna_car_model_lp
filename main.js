@@ -2,6 +2,7 @@
 import * as THREE from 'https://esm.sh/three@0.160.0';
 import { GLTFLoader }   from 'https://esm.sh/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'https://esm.sh/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+import { DRACOLoader }  from 'https://esm.sh/three@0.160.0/examples/jsm/loaders/DRACOLoader.js';
 
 const hero   = document.getElementById('hero');
 const canvas = document.getElementById('hero-canvas');
@@ -56,8 +57,14 @@ controls.autoRotate = true;
 controls.autoRotateSpeed = AUTOROTATE_SPEED;
 controls.enableZoom = false; // 通常はズーム無効（ページスクロール優先）
 
-// GLB読み込み
+// GLB読み込み（Draco圧縮対応版）
+const dracoLoader = new DRACOLoader();
+// Dracoデコーダの読み込み先を指定
+dracoLoader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
+
 const loader = new GLTFLoader();
+loader.setDRACOLoader(dracoLoader);
+
 let model;
 
 loader.load(
@@ -90,7 +97,7 @@ loader.load(
 
     console.log('GLB loaded:', glbURL);
   },
-  (e) => console.log('loading...', (e.loaded||0)+'/'+(e.total||'?')),
+  (e) => console.log('loading...', (e.loaded || 0) + '/' + (e.total || '?')),
   (err) => console.error('GLB load error:', err)
 );
 
