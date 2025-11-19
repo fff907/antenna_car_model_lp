@@ -380,134 +380,86 @@
 
     <!-- 料金 -->
     <section id="pricing" class="bg-white text-gray-900">
-      <!-- 全体幅：1440px想定 ＋ 中央寄せ -->
-      <div class="mx-auto max-w-[1440px] px-6 py-[60px]">
+      <div class="mx-auto max-w-[1234px] px-6 md:px-[110px] py-[60px]">
+
         <!-- 見出し -->
         <div class="text-center">
           <h2 class="font-extrabold text-[#333] text-[26px] md:text-[42px]">
             料金プラン
           </h2>
-          <!-- 下線：PCで545px -->
+          <!-- 下線：545px / h5 -->
           <div class="mt-5 h-[5px] w-[260px] md:w-[545px] bg-[#333] mx-auto"></div>
         </div>
 
-        <!-- プラン枠：1219px／左右200pxパディング -->
-        <div class="mt-[50px]">
-          <div
-            class="mx-auto w-full max-w-[1219px]
-                  border-[8px] border-[#3EAC78] bg-white
-                  px-6 py-8
-                  md:px-[200px] md:py-12"
-          >
-            <!-- 説明テキスト -->
-            <p class="text-center font-bold text-[#333] text-[18px] md:text-[24px] leading-relaxed">
-              長期プロジェクトや常設現場に、安定した通信を提供します。
-            </p>
+        <!-- 枠：1219 x 528 を意識 -->
+        <div
+          class="mt-12 border-[8px] border-[#3EAC78] max-w-[1219px] mx-auto
+                px-6 md:px-[200px] py-[40px] md:py-[50px]"
+        >
+          <!-- リード文 -->
+          <p class="text-center font-bold text-[#333] text-[16px] md:text-[24px]">
+            長期プロジェクトや常設現場に、安定した通信を提供します。
+          </p>
 
-            <!-- 料金表 -->
-            <div class="mt-10 md:mt-12 text-[#333]">
-              <!-- ヘッダー行 -->
-              <div
-                class="hidden md:grid grid-cols-[2fr,1fr,1fr] gap-x-10
-                      text-[22px] font-bold"
-              >
-                <div class="text-left">プラン</div>
-                <div class="text-center">1日プラン</div>
-                <div class="text-center">1カ月プラン</div>
+          <!-- 料金テーブル本体 -->
+          <div class="mt-10 text-[#333] font-bold text-[14px] md:text-[22px]">
+
+            <!-- 見出し行 -->
+            <div class="grid grid-cols-[2fr,2fr,1.5fr,1.5fr] gap-x-8 items-end">
+              <div></div>
+              <div class="text-left">プラン</div>
+              <div class="text-center">1日プラン</div>
+              <div class="text-center">1カ月プラン</div>
+            </div>
+
+            <!-- 上側ボーダー（800px） -->
+            <div class="mt-4 h-[3px] w-full max-w-[800px] bg-[#D1D5DB] mx-auto"></div>
+
+            <!-- プラン内容（「1日あたりのレンタル料」が2行にまたがる） -->
+            <div class="mt-6 grid grid-cols-[2fr,2fr,1.5fr,1.5fr] gap-x-8 items-center">
+
+              <!-- 左のラベル：2行ぶち抜き -->
+              <div class="row-span-2 text-left leading-tight">
+                <div>1日あたりの</div>
+                <div>レンタル料</div>
               </div>
-
-              <!-- スマホ版見出し -->
-              <div class="md:hidden text-center text-[18px] font-bold space-y-1">
-                <div>プラン別料金</div>
-                <div class="text-[16px] font-normal text-[#555]">
-                  （1日プラン / 1カ月プラン）
-                </div>
-              </div>
-
-              <!-- 1本目の罫線：800px -->
-              <div class="mt-4 md:mt-6 border-t-[3px] border-[#D1D5DB] max-w-[800px] mx-auto"></div>
 
               <!-- 1行目：オペレーターなし -->
-              <div
-                class="mt-6 grid grid-cols-1 md:grid-cols-[2fr,1fr,1fr]
-                      gap-y-3 gap-x-10 items-center"
-              >
-                <!-- 左列：ラベル＋プラン名 -->
-                <div class="md:text-left text-center">
-                  <div class="text-[18px] md:text-[22px] font-bold leading-snug">
-                    1日あたりの<br>レンタル料
-                  </div>
-                  <div class="mt-2 text-[18px] md:text-[22px] font-bold">
-                    オペレーターなし
-                  </div>
-                </div>
-
-                <!-- 中列：1日プラン -->
-                <div class="flex md:block justify-center md:justify-start items-center">
-                  <span class="md:hidden text-[14px] text-[#555] mr-3">1日プラン</span>
-                  <span class="text-[24px] md:text-[28px] font-extrabold">
-                    ¥45,000
-                  </span>
-                </div>
-
-                <!-- 右列：1カ月プラン -->
-                <div class="flex md:block justify-center md:justify-start items-center">
-                  <span class="md:hidden text-[14px] text-[#555] mr-3">1カ月プラン</span>
-                  <span class="text-[24px] md:text-[28px] font-extrabold">
-                    ¥43,000
-                  </span>
-                </div>
+              <div class="flex items-center">
+                オペレーターなし
               </div>
-
-              <!-- 2本目の罫線：582.65px ≒ 583px -->
-              <div class="mt-6 border-t-[3px] border-[#D1D5DB] max-w-[583px] mx-auto"></div>
+              <div class="text-center text-[18px] md:text-[28px] font-extrabold">
+                ¥45,000
+              </div>
+              <div class="text-center text-[18px] md:text-[28px] font-extrabold">
+                ¥43,000
+              </div>
 
               <!-- 2行目：オペレーターあり -->
-              <div
-                class="mt-6 grid grid-cols-1 md:grid-cols-[2fr,1fr,1fr]
-                      gap-y-3 gap-x-10 items-center"
-              >
-                <!-- 左列：ラベルは1行目と同じ位置感で -->
-                <div class="md:text-left text-center">
-                  <div class="text-[18px] md:text-[22px] font-bold leading-snug">
-                    1日あたりの<br>レンタル料
-                  </div>
-                  <div class="mt-2 text-[18px] md:text-[22px] font-bold">
-                    オペレーターあり
-                  </div>
-                </div>
-
-                <!-- 中列：1日プラン -->
-                <div class="flex md:block justify-center md:justify-start items-center">
-                  <span class="md:hidden text-[14px] text-[#555] mr-3">1日プラン</span>
-                  <span class="text-[24px] md:text-[28px] font-extrabold">
-                    ¥70,000
-                  </span>
-                </div>
-
-                <!-- 右列：1カ月プラン（ハイフン） -->
-                <div class="flex md:block justify-center md:justify-start items-center">
-                  <span class="md:hidden text-[14px] text-[#555] mr-3">1カ月プラン</span>
-                  <span class="text-[24px] md:text-[28px] font-extrabold">
-                    ー
-                  </span>
-                </div>
+              <div class="flex items-center mt-4">
+                オペレーターあり
+              </div>
+              <div class="text-center text-[18px] md:text-[28px] font-extrabold mt-4">
+                ¥70,000
+              </div>
+              <div class="text-center text-[18px] md:text-[28px] font-extrabold mt-4">
+                ー
               </div>
             </div>
 
-            <!-- 注釈（中央寄せ） -->
-            <div
-              class="mt-8 md:mt-10 space-y-[10px]
-                    text-[13px] md:text-[17px] text-[#555] leading-relaxed
-                    text-center"
-            >
+            <!-- 中央の短いボーダー（582.65px 想定） -->
+            <div class="mt-6 h-[3px] w-[260px] md:w-[583px] bg-[#D1D5DB] mx-auto"></div>
+          </div>
+
+          <!-- 注釈（ブロック全体は中央寄せ、中身は左揃え） -->
+          <div class="mt-8 text-[12px] md:text-[17px] text-[#555] leading-relaxed">
+            <div class="max-w-[700px] mx-auto text-left space-y-2">
               <p>※通信速度は上り1Mbps、下り4Mbpsとなります。</p>
-              <p>※料金は税別表示です。設営や出張費が別途発生する場合があります。</p>
+              <p>※料金は税別表示です。設備や出張費が別途発生する場合があります。</p>
               <p>※交通費は含まれておりません。</p>
             </div>
-            
           </div>
-        </div>
+        </div> <!-- /枠 -->
       </div>
     </section>
 
