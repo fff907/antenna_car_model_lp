@@ -379,8 +379,126 @@
     </section>
 
     <!-- 料金 -->
-    <section id="pricing" class="bg-white text-gray-800 flex items-center justify-center py-20 md:py-28 px-6">
-      <h2 class="text-3xl font-semibold text-center">料金</h2>
+    <section id="pricing" class="bg-white text-gray-900">
+      <div class="mx-auto max-w-[1234px] px-6 md:px-[180px] py-[60px]">
+        <!-- 見出し -->
+        <div class="text-center">
+          <h2 class="font-extrabold text-[#333] text-[26px] md:text-[42px]">
+            料金プラン
+          </h2>
+          <div class="mt-5 h-[5px] w-[260px] md:w-[545px] bg-[#333] mx-auto"></div>
+        </div>
+
+        <!-- プラン枠 -->
+        <div class="mt-[50px] flex justify-center">
+          <div
+            class="w-full max-w-[1219px] border-[8px] border-[#3EAC78] bg-white
+                  px-6 py-8 md:px-16 md:py-12"
+          >
+            <!-- 説明テキスト -->
+            <p class="text-center font-bold text-[#333] text-[18px] md:text-[24px] leading-relaxed">
+              長期プロジェクトや常設現場に、安定した通信を提供します。
+            </p>
+
+            <!-- 料金表 -->
+            <div class="mt-10 md:mt-12">
+              <!-- ヘッダー行 -->
+              <div
+                class="hidden md:grid grid-cols-[2fr,1fr,1fr] gap-x-10
+                      text-[22px] font-bold text-[#333]"
+              >
+                <div class="pl-2">プラン</div>
+                <div class="text-center">1日プラン</div>
+                <div class="text-center">1カ月プラン</div>
+              </div>
+
+              <!-- スマホ版見出し -->
+              <div class="md:hidden text-center text-[18px] font-bold text-[#333] space-y-1">
+                <div>プラン別料金</div>
+                <div class="text-[16px] font-normal text-[#555]">
+                  （1日プラン / 1カ月プラン）
+                </div>
+              </div>
+
+              <!-- 1行目 罫線 -->
+              <div class="mt-4 md:mt-6 border-t-[3px] border-[#D1D5DB] max-w-[800px] mx-auto"></div>
+
+              <!-- オペレーターなし -->
+              <div
+                class="mt-6 grid grid-cols-1 md:grid-cols-[2fr,1fr,1fr] gap-y-3 gap-x-10
+                      items-center text-[#333]"
+              >
+                <!-- ラベル列 -->
+                <div class="md:pl-2">
+                  <div class="text-[18px] md:text-[22px] font-bold">
+                    1日あたりの<br>レンタル料
+                  </div>
+                  <div class="mt-2 text-[18px] md:text-[22px] font-bold">
+                    オペレーターなし
+                  </div>
+                </div>
+
+                <!-- 料金 -->
+                <div class="flex md:block justify-between items-center">
+                  <span class="md:hidden text-[14px] text-[#555] mr-4">1日プラン</span>
+                  <span class="text-[24px] md:text-[28px] font-extrabold">
+                    ¥45,000
+                  </span>
+                </div>
+
+                <div class="flex md:block justify-between items-center">
+                  <span class="md:hidden text-[14px] text-[#555] mr-4">1カ月プラン</span>
+                  <span class="text-[24px] md:text-[28px] font-extrabold">
+                    ¥43,000
+                  </span>
+                </div>
+              </div>
+
+              <!-- 2行目 罫線 -->
+              <div class="mt-6 border-t-[3px] border-[#D1D5DB] max-w-[800px] mx-auto"></div>
+
+              <!-- オペレーターあり -->
+              <div
+                class="mt-6 grid grid-cols-1 md:grid-cols-[2fr,1fr,1fr] gap-y-3 gap-x-10
+                      items-center text-[#333]"
+              >
+                <!-- ラベル列 -->
+                <div class="md:pl-2">
+                  <div class="text-[18px] md:text-[22px] font-bold">
+                    1日あたりの<br>レンタル料
+                  </div>
+                  <div class="mt-2 text-[18px] md:text-[22px] font-bold">
+                    オペレーターあり
+                  </div>
+                </div>
+
+                <!-- 料金 -->
+                <div class="flex md:block justify-between items-center">
+                  <span class="md:hidden text-[14px] text-[#555] mr-4">1日プラン</span>
+                  <span class="text-[24px] md:text-[28px] font-extrabold">
+                    ¥70,000
+                  </span>
+                </div>
+
+                <div class="flex md:block justify-between items-center">
+                  <span class="md:hidden text-[14px] text-[#555] mr-4">1カ月プラン</span>
+                  <span class="text-[24px] md:text-[28px] font-extrabold">
+                    ー
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 注釈 -->
+            <div class="mt-8 md:mt-10 space-y-[10px] text-[13px] md:text-[17px] text-[#555] leading-relaxed">
+              <p>※通信速度は上り1Mbps、下り4Mbpsとなります。</p>
+              <p>※料金は税別表示です。設営や出張費が別途発生する場合があります。</p>
+              <p>※交通費は含まれておりません。</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- 問い合わせ -->
