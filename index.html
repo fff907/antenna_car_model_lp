@@ -564,26 +564,43 @@
     </section>
 
     <!-- フッター -->
-    <footer class="bg-gray-900 text-white py-8 px-6 text-sm md:text-base">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <p class="font-semibold text-base md:text-lg">
-          スカイネットワーク株式会社
-        </p>
+    <footer class="bg-gray-900 text-white py-8 px-6 text-xs sm:text-sm md:text-base">
+      <div class="max-w-6xl mx-auto space-y-4">
 
-        <div class="space-y-1 leading-relaxed md:text-right">
-          <p>所在地：千葉県千葉市花見川区犢橋町320-5（千葉支店）</p>
-          <p>
-            サイト：
-            <a
-              href="https://www.skynetwork.jp/"
-              class="underline hover:opacity-80"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              https://www.skynetwork.jp/
-            </a>
+        <!-- 上段：会社名＋情報 -->
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+          <!-- 会社名 -->
+          <p class="font-semibold text-base md:text-lg">
+            スカイネットワーク株式会社
           </p>
-          <p>電話番号：043-259-6921</p>
+
+          <!-- 所在地・サイト・電話番号 -->
+          <div class="space-y-1 leading-relaxed md:text-right">
+            <p>
+              <span class="inline-block w-24 md:w-28">所在地：</span>
+              千葉県千葉市花見川区犢橋町320-5（千葉支店）
+            </p>
+            <p>
+              <span class="inline-block w-24 md:w-28">サイト：</span>
+              <a
+                href="https://www.skynetwork.jp/"
+                class="underline hover:opacity-80"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://www.skynetwork.jp/
+              </a>
+            </p>
+            <p>
+              <span class="inline-block w-24 md:w-28">電話番号：</span>
+              043-259-6921
+            </p>
+          </div>
+        </div>
+
+        <!-- 下段：コピーライト -->
+        <div class="border-t border-white/10 pt-3 text-[11px] sm:text-xs md:text-sm text-center md:text-right">
+          <p>© スカイネットワーク株式会社</p>
         </div>
       </div>
     </footer>
