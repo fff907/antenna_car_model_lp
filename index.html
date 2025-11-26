@@ -90,65 +90,98 @@
       <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-[10]"></canvas>
       -->
 
-      <!-- キャッチコピー -->
-      <div class="absolute inset-x-0 top-24 px-6 text-center pointer-events-none z-30">
-        <h1 class="font-bold text-[32px] md:text-[57px] tracking-wide drop-shadow">
-          現場の“今”を、<br class="md:hidden">遠隔でつなぐ。
+      <!-- SPレイアウト（〜md未満） -->
+      <div class="block md:hidden relative z-20 px-6 pt-24 pb-16">
+        <!-- キャッチコピー -->
+        <h1 class="font-bold text-[32px] tracking-wide drop-shadow text-center leading-snug">
+          現場の“今”を、<br>遠隔でつなぐ。
         </h1>
-      </div>
 
-      <!-- 2Dメインビジュアル -->
-      <div class="absolute inset-x-0 bottom-24 md:bottom-16 lg:bottom-20 flex justify-center z-20">
-        <img
-          src="./img/antenna-car-hero.png"
-          alt="災害時に活躍する簡易衛星通信車"
-          class="w-[260px] sm:w-[320px] md:w-[460px] lg:w-[520px] h-auto drop-shadow-xl"
-        >
-      </div>
+        <!-- メインビジュアル（SP） -->
+        <div class="mt-8 flex justify-center">
+          <img
+            src="./img/antenna-car-hero.png"
+            alt="災害時に活躍する簡易衛星通信車"
+            class="w-[260px] xs:w-[280px] sm:w-[320px] h-auto drop-shadow-xl"
+          >
+        </div>
 
-      <!-- ドラッグヒント（3Dモデル停止中のため一時的に非表示）
-      <div id="drag-hint"
-          class="absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2
-                  z-[60] pointer-events-none transition-opacity duration-700 opacity-90">
-        <div class="bg-white/25 text-white backdrop-blur-sm rounded-full px-4 py-1
-                    flex items-center gap-2 drop-shadow">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-              class="[animation:hintFade_2s_ease-in-out_infinite]">
-            <path d="M9 11V6a2 2 0 1 1 4 0v5h1.5V8.5a2 2 0 1 1 4 0V13a6.5 6.5 0 0 1-6.5 6.5H10A5 5 0 0 1 5 14v-1a2 2 0 1 1 4 0v-2h0Z"/>
-          </svg>
-          <div class="relative w-10 h-2">
-            <span class="absolute inset-y-0 left-0 inline-block w-2 h-2 rounded-full bg-white/80
-                        [animation:swipe_1.6s_ease-in-out_infinite]"></span>
-            <span class="absolute inset-y-0 right-0 inline-block w-2 h-2 rounded-full bg-white/50"></span>
+        <!-- 情報カード（SP用：縦並び） -->
+        <div class="mt-8 space-y-4">
+          <!-- カード1 -->
+          <div class="bg-white text-[#0E2B64] rounded-lg shadow-lg p-4">
+            <p class="text-sm font-semibold mb-1">
+              衛星アンテナユニット
+            </p>
+            <p class="text-xs opacity-80 leading-relaxed">
+              市販キャリアに自動追尾アンテナを搭載。<br>
+              現地到着後にケーブルを接続し、窓から安全に車内へ引き込みます。
+            </p>
+          </div>
+
+          <!-- カード2 -->
+          <div class="bg-white text-[#0E2B64] rounded-lg shadow-lg p-4">
+            <p class="text-sm font-semibold mb-1">
+              機材ラック・設置方式
+            </p>
+            <p class="text-xs opacity-80 leading-relaxed">
+              市販ラックに屋内機器を固定し、油圧ジャッキで車体を安定化。<br>
+              災害現場でも安心して運用できる構成です。
+            </p>
           </div>
         </div>
       </div>
-      -->
 
-      <!-- 情報カード：左 -->
-      <div id="info-left"
-          class="absolute top-1/3 left-[6%] w-[260px] md:w-[320px] bg-white text-[#0E2B64]
-                  rounded-lg shadow-lg p-4 z-40 hidden md:block">
-        <p class="text-sm md:text-base font-semibold mb-1">
-          衛星アンテナユニット
-        </p>
-        <p class="text-xs md:text-sm opacity-80 leading-relaxed">
-          市販キャリアに自動追尾アンテナを搭載。<br>
-          現地到着後にケーブルを接続し、窓から安全に車内へ引き込みます。
-        </p>
-      </div>
+      <!-- PCレイアウト（md以上）-->
+      <div class="hidden md:block">
+        <!-- キャッチコピー -->
+        <div class="absolute inset-x-0 top-24 px-6 text-center pointer-events-none z-30">
+          <h1 class="font-bold text-[32px] md:text-[57px] tracking-wide drop-shadow">
+            現場の“今”を、<br class="md:hidden">遠隔でつなぐ。
+          </h1>
+        </div>
 
-      <!-- 情報カード：右 -->
-      <div id="info-right"
-          class="absolute top-1/3 right-[6%] w-[260px] md:w-[320px] bg-white text-[#0E2B64]
-                  rounded-lg shadow-lg p-4 z-40 hidden md:block">
-        <p class="text-sm md:text-base font-semibold mb-1">
-          機材ラック・設置方式
-        </p>
-        <p class="text-xs md:text-sm opacity-80 leading-relaxed">
-          市販ラックに屋内機器を固定し、油圧ジャッキで車体を安定化。<br>
-          災害現場でも安心して運用できる構成です。
-        </p>
+        <!-- 2Dメインビジュアル（PC） -->
+        <div
+          class="absolute inset-x-0 flex justify-center z-20
+                bottom-16 lg:bottom-20 xl:bottom-24 2xl:bottom-28"
+        >
+          <img
+            src="./img/antenna-car-hero.png"
+            alt="災害時に活躍する簡易衛星通信車"
+            class="w-[420px] lg:w-[520px] xl:w-[560px] 2xl:w-[600px] h-auto drop-shadow-xl"
+          >
+        </div>
+
+        <!-- 情報カード：左（PCのみ表示） -->
+        <div
+          id="info-left"
+          class="absolute top-1/3 left-[6%] w-[260px] lg:w-[320px] bg-white text-[#0E2B64]
+                rounded-lg shadow-lg p-4 z-40"
+        >
+          <p class="text-sm md:text-base font-semibold mb-1">
+            衛星アンテナユニット
+          </p>
+          <p class="text-xs md:text-sm opacity-80 leading-relaxed">
+            市販キャリアに自動追尾アンテナを搭載。<br>
+            現地到着後にケーブルを接続し、窓から安全に車内へ引き込みます。
+          </p>
+        </div>
+
+        <!-- 情報カード：右（PCのみ表示） -->
+        <div
+          id="info-right"
+          class="absolute top-1/3 right-[6%] w-[260px] lg:w-[320px] bg-white text-[#0E2B64]
+                rounded-lg shadow-lg p-4 z-40"
+        >
+          <p class="text-sm md:text-base font-semibold mb-1">
+            機材ラック・設置方式
+          </p>
+          <p class="text-xs md:text-sm opacity-80 leading-relaxed">
+            市販ラックに屋内機器を固定し、油圧ジャッキで車体を安定化。<br>
+            災害現場でも安心して運用できる構成です。
+          </p>
+        </div>
       </div>
 
       <div class="h-10"></div>
