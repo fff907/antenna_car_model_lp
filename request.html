@@ -10,8 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;700;800&display=swap" rel="stylesheet">
-    
-    <!-- favicon -->
     <link rel="icon" href="./img/favicon.ico">
 
     <style>
@@ -45,78 +43,79 @@
         <header class="fixed inset-x-0 top-0 z-[80] bg-white text-gray-900 shadow transition-colors duration-200">
         <div class="mx-auto w-full px-5 py-3 md:px-[50px] md:py-[20px]">
             <div class="flex items-start md:items-center justify-between">
-            <!-- ロゴ -->
-            <a href="/" class="select-none leading-tight">
-                <div class="font-extrabold text-[16px] md:text-[18px]">
-                    衛星モバイル伝送出張サービス
-                </div>
-                <div class="font-extrabold text-[12px] md:text-[14px] opacity-90">
-                    by スカイネットワーク株式会社
-                </div>
-            </a>
+                <!-- ロゴ -->
+                <a href="/" class="select-none leading-tight">
+                    <div class="font-extrabold text-[16px] md:text-[18px]">
+                        衛星モバイル伝送出張サービス
+                    </div>
+                    <div class="font-extrabold text-[12px] md:text-[14px] opacity-90">
+                        by スカイネットワーク株式会社
+                    </div>
+                </a>
 
-            <!-- ハンバーガーメニュー -->
-            <button id="nav-toggle"
-                    class="md:hidden relative h-10 w-10 grid place-items-center text-gray-900 -mt-1 mr-1"
-                    aria-label="メニュー" aria-expanded="false" aria-controls="main-nav">
-                <span class="sr-only">メニュー</span>
-                <span class="bar top    absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
-                <span class="bar middle absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
-                <span class="bar bottom absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
-            </button>
+                <!-- ハンバーガーメニュー -->
+                <button id="nav-toggle"
+                        class="md:hidden relative h-10 w-10 grid place-items-center text-gray-900 -mt-1 mr-1"
+                        aria-label="メニュー" aria-expanded="false" aria-controls="main-nav">
+                    <span class="sr-only">メニュー</span>
+                    <span class="bar top    absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
+                    <span class="bar middle absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
+                    <span class="bar bottom absolute h-0.5 w-6 bg-current transition-all duration-300"></span>
+                </button>
             </div>
         </div>
 
-        <nav aria-label="メインナビ"
-            class="md:absolute md:top-[40px] md:right-[50px] md:mx-0">
-            <ul id="main-nav"
-                class="fixed inset-x-3 top-[68px] md:static
-                    pointer-events-none opacity-0 -translate-y-2 transition-all duration-300
-                    md:pointer-events-auto md:opacity-100 md:translate-y-0
-                    bg-white text-gray-900 md:bg-transparent md:text-gray-900
-                    rounded-xl border border-black/10 shadow md:rounded-none md:border-0 md:shadow-none
-                    grid gap-1 p-2 md:p-0 md:flex md:items-center md:gap-[50px]">
-                <li>
-                    <a href="/#service"
-                    class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">
-                    サービス概要
-                    </a>
-                </li>
-                <li>
-                    <a href="/#pricing"
-                    class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">
-                    料金
-                    </a>
-                </li>
-            </ul>
-        </nav>
+            <nav aria-label="メインナビ"
+                class="md:absolute md:top-[40px] md:right-[50px] md:mx-0">
+                <ul id="main-nav"
+                    class="fixed inset-x-3 top-[68px] md:static
+                        pointer-events-none opacity-0 -translate-y-2 transition-all duration-300
+                        md:pointer-events-auto md:opacity-100 md:translate-y-0
+                        bg-white text-gray-900 md:bg-transparent md:text-gray-900
+                        rounded-xl border border-black/10 shadow md:rounded-none md:border-0 md:shadow-none
+                        grid gap-1 p-2 md:p-0 md:flex md:items-center md:gap-[50px]">
+                    <li>
+                        <a href="/#service"
+                        class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">
+                        サービス概要
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/#pricing"
+                        class="block px-3 py-2 md:px-0 md:py-0 text-[16px] md:text-[18px] font-bold hover:opacity-80">
+                        料金
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </header>
 
         <!-- メインコンテンツ -->
         <main class="max-w-3xl mx-auto px-4 pt-28 pb-10 md:pt-32 md:pb-14">
             <!-- タイトル -->
             <section class="mb-8 text-center">
-            <h1 class="text-2xl md:text-3xl font-bold mb-3">
-                衛星通信車 出張サービスのご依頼
-            </h1>
-            <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                デモのご相談・お見積り・本番現場でのご利用など、<br class="hidden md:block">
-                こちらのフォームからお知らせください。担当者より折り返しご連絡いたします。
-            </p>
+                <h1 class="text-2xl md:text-3xl font-bold mb-3">
+                    衛星通信車 出張サービスのご依頼
+                </h1>
+                <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                    デモのご相談・お見積り・本番現場でのご利用など、<br class="hidden md:block">
+                    こちらのフォームからお知らせください。担当者より折り返しご連絡いたします。
+                </p>
             </section>
 
             <!-- フォームカード -->
             <section class="bg-white rounded-xl shadow-md p-6 md:p-8">
                 <form name="antenna-request"
-                    method="POST"
-                    data-netlify="true"
-                    data-netlify-honeypot="bot-field"
-                    action="/thanks.html"
-                    class="space-y-6">
+                      method="POST"
+                      data-netlify="true"
+                      data-netlify-honeypot="bot-field"
+                      action="/thanks.html"
+                      class="space-y-6">
 
-                    <!-- form-name … Netlify側が「どのフォームから来たデータか」を認識するためのもの
-                         bot-field … ボットが埋めてきたらスパム扱いにできる“罠”フィールド -->
+                    <!-- 必須：Netlifyのフォーム識別 -->
                     <input type="hidden" name="form-name" value="antenna-request">
+
+                    <!-- スパム対策用（honeypot） -->
                     <p class="hidden">
                         <label>
                             もしあなたが人間なら、このフィールドは空のままにしてください：
@@ -187,22 +186,22 @@
 
                     <!-- 希望日程 -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-semibold mb-1">
-                        ご希望のご利用日・期間
-                        </label>
-                        <input type="text" name="date"
-                            class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#4A7CD8]"
-                            placeholder="例）2026年2月中旬の平日／○月○日〜○月○日 など">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold mb-1">
-                        想定されている用途
-                        </label>
-                        <input type="text" name="usage"
-                            class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#4A7CD8]"
-                            placeholder="例）避難訓練での映像伝送、災害時のバックアップ回線 など">
-                    </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-1">
+                            ご希望のご利用日・期間
+                            </label>
+                            <input type="text" name="date"
+                                class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#4A7CD8]"
+                                placeholder="例）2026年2月中旬の平日／○月○日〜○月○日 など">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-1">
+                            想定されている用途
+                            </label>
+                            <input type="text" name="usage"
+                                class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#4A7CD8]"
+                                placeholder="例）避難訓練での映像伝送、災害時のバックアップ回線 など">
+                        </div>
                     </div>
 
                     <!-- その他 -->
@@ -210,20 +209,20 @@
                     <label class="block text-sm font-semibold mb-1">
                         その他のご要望・ご質問
                     </label>
-                    <textarea name="message"
-                                rows="4"
-                                class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#4A7CD8]"
-                                placeholder="現時点で分かる範囲で構いません。ご希望やご不明点があればご記入ください。"></textarea>
+                        <textarea name="message"
+                                    rows="4"
+                                    class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#4A7CD8]"
+                                    placeholder="現時点で分かる範囲で構いません。ご希望やご不明点があればご記入ください。"></textarea>
                     </div>
 
                     <!-- 送信ボタン -->
                     <div class="pt-2">
-                    <button type="submit"
-                            class="w-full inline-flex items-center justify-center rounded-md bg-red-600 px-6 py-3
-                                    text-white text-base font-semibold shadow-md hover:bg-red-700
-                                    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-300">
-                        この内容で問い合わせる
-                    </button>
+                        <button type="submit"
+                                class="w-full inline-flex items-center justify-center rounded-md bg-red-600 px-6 py-3
+                                        text-white text-base font-semibold shadow-md hover:bg-red-700
+                                        focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-300">
+                            この内容で問い合わせる
+                        </button>
                     </div>
 
                     <p class="mt-3 text-[11px] text-gray-500 leading-relaxed">
@@ -236,61 +235,61 @@
 
     <!-- フッター -->
         <footer class="bg-gray-900 text-white py-10 px-6 text-xs sm:text-sm md:text-base">
-        <div class="max-w-6xl mx-auto space-y-5">
+            <div class="max-w-6xl mx-auto space-y-5">
 
-            <!-- 上段：会社名＋情報 -->
-            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-            <!-- 会社名 -->
-            <p class="font-semibold text-base md:text-lg text-center md:text-left">
-                スカイネットワーク株式会社
-            </p>
+                <!-- 上段：会社名＋情報 -->
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                    <!-- 会社名 -->
+                    <p class="font-semibold text-base md:text-lg text-center md:text-left">
+                        スカイネットワーク株式会社
+                    </p>
 
-            <!-- 所在地・サイト・電話番号 -->
-            <div class="space-y-1 leading-relaxed text-left w-fit mx-auto md:mx-0">
-                <p>
-                所在地：千葉県千葉市花見川区犢橋町320-5（千葉支店）
-                </p>
-                <p>
-                サイト：
-                <a
-                    href="https://www.skynetwork.jp/"
-                    class="underline hover:opacity-80"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    https://www.skynetwork.jp/
-                </a>
-                </p>
-                <p>
-                電話番号：043-259-6921
-                </p>
-            </div>
-            </div>
+                    <!-- 所在地・サイト・電話番号 -->
+                    <div class="space-y-1 leading-relaxed text-left w-fit mx-auto md:mx-0">
+                        <p>
+                        所在地：千葉県千葉市花見川区犢橋町320-5（千葉支店）
+                        </p>
+                        <p>
+                        サイト：
+                        <a
+                            href="https://www.skynetwork.jp/"
+                            class="underline hover:opacity-80"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            https://www.skynetwork.jp/
+                        </a>
+                        </p>
+                        <p>
+                        電話番号：043-259-6921
+                        </p>
+                    </div>
+                </div>
 
-            <!-- 下段：コピーライト -->
-            <div class="mt-2 pb-2 text-[11px] sm:text-xs md:text-sm text-center">
-            <p>© 2025 スカイネットワーク株式会社</p>
+                <!-- 下段：コピーライト -->
+                <div class="mt-2 pb-2 text-[11px] sm:text-xs md:text-sm text-center">
+                <p>© 2025 スカイネットワーク株式会社</p>
+                </div>
             </div>
-        </div>
         </footer>
 
         <!-- 開閉制御 -->
         <script>
-        (function(){
-            const btn  = document.getElementById('nav-toggle');
-            const list = document.getElementById('main-nav');
-            function setOpen(open){
-            btn?.classList.toggle('open', open);
-            btn?.setAttribute('aria-expanded', String(open));
-            list?.classList.toggle('pointer-events-none', !open);
-            list?.classList.toggle('opacity-0', !open);
-            list?.classList.toggle('-translate-y-2', !open);
-            }
-            btn?.addEventListener('click', () => setOpen(!btn.classList.contains('open')));
-            window.addEventListener('scroll', () => setOpen(false), {passive:true});
-            document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
-            list?.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
-        })();
+            (function(){
+                const btn  = document.getElementById('nav-toggle');
+                const list = document.getElementById('main-nav');
+                function setOpen(open){
+                btn?.classList.toggle('open', open);
+                btn?.setAttribute('aria-expanded', String(open));
+                list?.classList.toggle('pointer-events-none', !open);
+                list?.classList.toggle('opacity-0', !open);
+                list?.classList.toggle('-translate-y-2', !open);
+                }
+                btn?.addEventListener('click', () => setOpen(!btn.classList.contains('open')));
+                window.addEventListener('scroll', () => setOpen(false), {passive:true});
+                document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+                list?.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
+            })();
         </script>
   </body>
 </html>
