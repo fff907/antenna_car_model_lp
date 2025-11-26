@@ -272,41 +272,5 @@
         list?.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
       })();
     </script>
-
-    <!-- ヘッダー色の自動反転 -->
-    <script>
-      (function () {
-        const header = document.querySelector('header');
-        const btn    = document.getElementById('nav-toggle');
-        const list   = document.getElementById('main-nav');
-        const hero   = document.getElementById('hero');
-        if (!header || !hero) return;
-
-        const observer = new IntersectionObserver(([entry]) => {
-            const onHero = entry.isIntersecting;
-
-            // 背景と文字色
-            header.classList.toggle('text-white',     onHero);
-            header.classList.toggle('text-gray-900', !onHero);
-
-            header.classList.toggle('bg-transparent', onHero);
-            header.classList.toggle('bg-white',      !onHero);
-
-            // 不要クラスを外す
-            header.classList.remove('bg-white/90', 'backdrop-blur', 'shadow', 'shadow-sm');
-
-            // ハンバーガーの色
-            btn?.classList.toggle('text-white',     onHero);
-            btn?.classList.toggle('text-gray-900', !onHero);
-
-            // PCナビの色
-            list?.classList.toggle('md:!text-white',     onHero);
-            list?.classList.toggle('md:!text-gray-900', !onHero);
-          }, { rootMargin: '-80px 0px 0px 0px', threshold: 0 });
-
-          observer.observe(hero);
-      })();
-    </script>
-
   </body>
 </html>
