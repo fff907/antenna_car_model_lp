@@ -240,6 +240,38 @@
             </div>
           </div>
 
+          <!-- オペレーター種別 -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">
+              オペレーターの種別
+            </label>
+            <div class="flex flex-col gap-2 md:flex-row md:items-center md:gap-6 text-sm">
+              <label class="inline-flex items-center">
+                <input type="radio" name="operator_type" value="with"
+                  class="h-4 w-4 text-[#4A7CD8] border-gray-300 focus:ring-[#4A7CD8]">
+                <span class="ml-2">オペレーターあり</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="radio" name="operator_type" value="without"
+                  class="h-4 w-4 text-[#4A7CD8] border-gray-300 focus:ring-[#4A7CD8]">
+                <span class="ml-2">オペレーターなし</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- オペレーター付きの場合の必要日数 -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">
+              オペレーター付きでの想定日数
+            </label>
+            <input type="text" name="operator_days"
+              class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#4A7CD8]"
+              placeholder="例）1日／2日間／3日間 など">
+            <p class="mt-1 text-xs text-gray-500">
+              ※オペレーターありをご希望の場合のみ、ご記入ください。
+            </p>
+          </div>
+
           <!-- その他 -->
           <div>
             <label class="block text-sm font-semibold mb-1">
