@@ -414,7 +414,7 @@
       </div>
     </section>
 
-    <!-- 料金(※現時点で社外秘につき非表示(hidden)) -->
+    <!-- 料金 -->
     <section id="pricing" class="bg-white text-gray-900">
       <div class="mx-auto max-w-[1280px] px-6 min-[1220px]:px-[155px] py-[60px] min-[1220px]:py-[80px]">
 
@@ -427,18 +427,23 @@
           <div class="mt-5 h-[5px] w-[260px] md:w-[545px] bg-[#333] mx-auto"></div>
         </div>
 
-        <!-- 枠 -->
+        <!-- 説明文（共通） -->
+        <p class="mt-[30px] text-center text-[16px] md:text-[24px] font-bold text-[#333]">
+          長期プロジェクトや常設現場に、安定した通信を提供します。
+        </p>
+
+        <!-- ▼▼▼ キャンペーン期間中に使用する料金枠 ▼▼▼ -->
         <div
-          class="mt-[50px] mx-auto max-w-[1219px] border-[8px] border-[#3EAC78]
+          class="mt-[30px] mx-auto max-w-[1219px] border-[8px] border-[#3EAC78]
                 px-4 py-8 min-[1220px]:px-[100px] min-[1220px]:py-[50px]"
         >
-          <!-- 説明文 -->
-          <p class="text-center text-[16px] md:text-[24px] font-bold text-[#333]">
-            長期プロジェクトや常設現場に、安定した通信を提供します。
+          <!-- キャンペーン中ラベル（必要なければ削除OK） -->
+          <p class="text-center text-[13px] md:text-[16px] text-[#1D4ED8] font-semibold">
+            ただいま <span class="underline">キャンペーン価格</span> でご提供中です。
           </p>
 
           <!-- 料金表本体（PC用） -->
-          <div class="hidden min-[1220px]:block mt-[40px] text-[#333] font-bold text-[18px] md:text-[22px]">
+          <div class="hidden min-[1220px]:block mt-[30px] text-[#333] font-bold text-[18px] md:text-[22px]">
 
             <!-- ヘッダー行：プラン / 1日プラン / 1カ月プラン -->
             <div
@@ -455,7 +460,7 @@
               <div class="w-[800px] border-t-[3px] border-[#D1D5DB]"></div>
             </div>
 
-            <!-- 本体行＋真ん中のライン -->
+            <!-- 本体行 -->
             <div
               class="mt-6 grid 
                     grid-cols-[1.1fr_1.5fr_1fr_1fr]
@@ -468,27 +473,27 @@
                 <div>レンタル料</div>
               </div>
 
-              <!-- 1段目：オペレーターなし行 -->
-              <div class="row-start-2">オペレーターなし</div>
-              <div class="row-start-2 text-center text-[24px] md:text-[28px]">
-                ¥45,000
+              <!-- 1段目：通常価格（未公表） -->
+              <div class="row-start-2">通常価格</div>
+              <div class="row-start-2 text-center text-[20px] md:text-[24px]">
+                未公表
               </div>
-              <div class="row-start-2 text-center text-[24px] md:text-[28px]">
-                ¥43,000
+              <div class="row-start-2 text-center text-[20px] md:text-[24px]">
+                未公表
               </div>
 
-              <!-- 真ん中のライン（オペレーターなし と あり の間） -->
+              <!-- 真ん中のライン -->
               <div class="row-start-3 col-start-2 col-span-3 mt-4 mb-4">
                 <div class="w-[550px] border-t-[3px] border-[#D1D5DB] ml-auto"></div>
               </div>
 
-              <!-- 2段目：オペレーターあり行 -->
-              <div class="row-start-4">オペレーターあり</div>
+              <!-- 2段目：キャンペーン価格（既存の金額を流用） -->
+              <div class="row-start-4">キャンペーン価格</div>
               <div class="row-start-4 text-center text-[24px] md:text-[28px]">
-                ¥70,000
+                ¥45,000
               </div>
               <div class="row-start-4 text-center text-[24px] md:text-[28px]">
-                ー
+                ¥43,000
               </div>
             </div>
           </div>
@@ -496,19 +501,49 @@
           <!-- 料金表本体（スマホ・タブレット用） -->
           <div class="block min-[1220px]:hidden mt-[30px] text-[#333] font-bold text-[16px] space-y-6">
 
-            <!-- 1ブロック目：オペレーターなし -->
+            <!-- ブロック1：通常価格（未公表） -->
             <div class="pt-4 border-t-[3px] border-[#D1D5DB]">
               <p class="text-[15px] mb-2">1日あたりのレンタル料</p>
 
               <div class="flex flex-col min-[540px]:flex-row
-                items-center min-[540px]:items-start
-                justify-center min-[540px]:justify-between
-                gap-4
-                max-w-[360px] mx-auto
-                min-[540px]:max-w-none min-[540px]:mx-0">
-                <div>オペレーターなし</div>
+                          items-center min-[540px]:items-start
+                          justify-center min-[540px]:justify-between
+                          gap-4
+                          max-w-[360px] mx-auto
+                          min-[540px]:max-w-none min-[540px]:mx-0">
+                <div>通常価格</div>
 
-                <!-- 右側：金額カラム -->
+                <div class="mt-2 min-[540px]:mt-0 flex min-[540px]:justify-end">
+                  <div class="space-y-1">
+                    <div class="flex items-baseline">
+                      <span class="inline-block w-[120px] text-left text-[20px] font-extrabold">
+                        未公表
+                      </span>
+                      <span class="ml-1 text-[12px] font-normal">（1日）</span>
+                    </div>
+                    <div class="flex items-baseline">
+                      <span class="inline-block w-[120px] text-left text-[20px] font-extrabold">
+                        未公表
+                      </span>
+                      <span class="ml-1 text-[12px] font-normal">（1カ月）</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ブロック2：キャンペーン価格 -->
+            <div class="pt-4 border-t-[3px] border-[#D1D5DB]">
+              <p class="text-[15px] mb-2">1日あたりのレンタル料</p>
+
+              <div class="flex flex-col min-[540px]:flex-row
+                          items-center min-[540px]:items-start
+                          justify-center min-[540px]:justify-between
+                          gap-4
+                          max-w-[360px] mx-auto
+                          min-[540px]:max-w-none min-[540px]:mx-0">
+                <div>キャンペーン価格</div>
+
                 <div class="mt-2 min-[540px]:mt-0 flex min-[540px]:justify-end">
                   <div class="space-y-1">
                     <div class="flex items-baseline">
@@ -520,38 +555,6 @@
                     <div class="flex items-baseline">
                       <span class="inline-block w-[120px] text-left text-[20px] font-extrabold">
                         ¥43,000
-                      </span>
-                      <span class="ml-1 text-[12px] font-normal">（1カ月）</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 2ブロック目：オペレーターあり -->
-            <div class="pt-4 border-t-[3px] border-[#D1D5DB]">
-              <p class="text-[15px] mb-2">1日あたりのレンタル料</p>
-
-              <div class="flex flex-col min-[540px]:flex-row
-                items-center min-[540px]:items-start
-                justify-center min-[540px]:justify-between
-                gap-4
-                max-w-[360px] mx-auto
-                min-[540px]:max-w-none min-[540px]:mx-0">
-                <div>オペレーターあり</div>
-
-                <!-- 右側：金額カラム -->
-                <div class="mt-2 min-[540px]:mt-0 flex min-[540px]:justify-end">
-                  <div class="space-y-1">
-                    <div class="flex items-baseline">
-                      <span class="inline-block w-[120px] text-left text-[20px] font-extrabold">
-                        ¥70,000
-                      </span>
-                      <span class="ml-1 text-[12px] font-normal">（1日）</span>
-                    </div>
-                    <div class="flex items-baseline">
-                      <span class="inline-block w-[120px] text-center text-[20px] font-extrabold">
-                        ー
                       </span>
                       <span class="ml-1 text-[12px] font-normal">（1カ月）</span>
                     </div>
@@ -577,6 +580,9 @@
                 映像伝送装置における使用上のサポート等、撮影を行うための一連の準備を行う者です。
                 必要に応じて撮影も行います。
               </p>
+              <p class="mt-1 text-[12px] md:text-[14px] text-[#1F2937]">
+                キャンペーン期間中は、オペレーターありの場合のみ提供させていただきます。
+              </p>
             </div>
 
             <!-- オペレーターなし -->
@@ -588,6 +594,9 @@
                 車両運搬につきましては、基本、期間開始日の前日（営業日）、
                 期間終了時の翌日（営業日）に行うこととします。<br class="hidden md:inline">
                 ただし状況に応じてご相談させていただきます。
+              </p>
+              <p class="mt-1 text-[12px] md:text-[14px] text-[#555]">
+                ※本ケースは、キャンペーン期間中は適用されません。
               </p>
             </div>
           </div>
@@ -603,6 +612,171 @@
             </div>
           </div>
         </div>
+        <!-- ▲▲▲ キャンペーン期間中に使用する料金枠 ここまで ▲▲▲ -->
+
+        <!--
+          ▼▼▼ キャンペーン終了後に戻す用：元の「オペレーターあり／なし」バージョン ▼▼▼
+          上のキャンペーン用 <div> をコメントアウト or 削除し、
+          このブロックのコメントを外せば元の表示に戻せます。
+        -->
+        <!--
+        <div
+          class="mt-[50px] mx-auto max-w-[1219px] border-[8px] border-[#3EAC78]
+                px-4 py-8 min-[1220px]:px-[100px] min-[1220px]:py-[50px]"
+        >
+          <p class="text-center text-[16px] md:text-[24px] font-bold text-[#333]">
+            長期プロジェクトや常設現場に、安定した通信を提供します。
+          </p>
+
+          <div class="hidden min-[1220px]:block mt-[40px] text-[#333] font-bold text-[18px] md:text-[22px]">
+            <div
+              class="grid grid-cols-[1.1fr_1.5fr_1fr_1fr]
+                    gap-x-[40px] items-end">
+              <div>プラン</div>
+              <div></div>
+              <div class="text-center">1日プラン</div>
+              <div class="text-center">1カ月プラン</div>
+            </div>
+
+            <div class="mt-4 flex justify-end">
+              <div class="w-[800px] border-t-[3px] border-[#D1D5DB]"></div>
+            </div>
+
+            <div
+              class="mt-6 grid 
+                    grid-cols-[1.1fr_1.5fr_1fr_1fr]
+                    grid-rows-[auto_auto_auto_auto]
+                    gap-x-[40px] items-center">
+
+              <div class="row-span-3 row-start-2 leading-tight">
+                <div>1日あたりの</div>
+                <div>レンタル料</div>
+              </div>
+
+              <div class="row-start-2">オペレーターなし</div>
+              <div class="row-start-2 text-center text-[24px] md:text-[28px]">
+                ¥45,000
+              </div>
+              <div class="row-start-2 text-center text-[24px] md:text-[28px]">
+                ¥43,000
+              </div>
+
+              <div class="row-start-3 col-start-2 col-span-3 mt-4 mb-4">
+                <div class="w-[550px] border-t-[3px] border-[#D1D5DB] ml-auto"></div>
+              </div>
+
+              <div class="row-start-4">オペレーターあり</div>
+              <div class="row-start-4 text-center text-[24px] md:text-[28px]">
+                ¥70,000
+              </div>
+              <div class="row-start-4 text-center text-[24px] md:text-[28px]">
+                ー
+              </div>
+            </div>
+          </div>
+
+          <div class="block min-[1220px]:hidden mt-[30px] text-[#333] font-bold text-[16px] space-y-6">
+
+            <div class="pt-4 border-t-[3px] border-[#D1D5DB]">
+              <p class="text-[15px] mb-2">1日あたりのレンタル料</p>
+
+              <div class="flex flex-col min-[540px]:flex-row
+                          items-center min-[540px]:items-start
+                          justify-center min-[540px]:justify-between
+                          gap-4
+                          max-w-[360px] mx-auto
+                          min-[540px]:max-w-none min-[540px]:mx-0">
+                <div>オペレーターなし</div>
+
+                <div class="mt-2 min-[540px]:mt-0 flex min-[540px]:justify-end">
+                  <div class="space-y-1">
+                    <div class="flex items-baseline">
+                      <span class="inline-block w-[120px] text-left text-[20px] font-extrabold">
+                        ¥45,000
+                      </span>
+                      <span class="ml-1 text-[12px] font-normal">（1日）</span>
+                    </div>
+                    <div class="flex items-baseline">
+                      <span class="inline-block w-[120px] text-left text-[20px] font-extrabold">
+                        ¥43,000
+                      </span>
+                      <span class="ml-1 text-[12px] font-normal">（1カ月）</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t-[3px] border-[#D1D5DB]">
+              <p class="text-[15px] mb-2">1日あたりのレンタル料</p>
+
+              <div class="flex flex-col min-[540px]:flex-row
+                          items-center min-[540px]:items-start
+                          justify-center min-[540px]:justify-between
+                          gap-4
+                          max-w-[360px] mx-auto
+                          min-[540px]:max-w-none min-[540px]:mx-0">
+                <div>オペレーターあり</div>
+
+                <div class="mt-2 min-[540px]:mt-0 flex min-[540px]:justify-end">
+                  <div class="space-y-1">
+                    <div class="flex items-baseline">
+                      <span class="inline-block w-[120px] text-left text-[20px] font-extrabold">
+                        ¥70,000
+                      </span>
+                      <span class="ml-1 text-[12px] font-normal">（1日）</span>
+                    </div>
+                    <div class="flex items-baseline">
+                      <span class="inline-block w-[120px] text-center text-[20px] font-extrabold">
+                        ー
+                      </span>
+                      <span class="ml-1 text-[12px] font-normal">（1カ月）</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 text-[13px] md:text-[16px] text-[#333] leading-relaxed space-y-4">
+            <h3 class="font-bold text-[15px] md:text-[18px]">
+              オペレーターの貸し出し条件
+            </h3>
+
+            <div>
+              <p class="font-semibold">
+                オペレーターありの場合
+              </p>
+              <p class="mt-1">
+                オペレーターとは、弊社から指定場所への運転および衛星捕捉、
+                映像伝送装置における使用上のサポート等、撮影を行うための一連の準備を行う者です。
+                必要に応じて撮影も行います。
+              </p>
+            </div>
+
+            <div>
+              <p class="font-semibold">
+                オペレーターなしの場合
+              </p>
+              <p class="mt-1">
+                車両運搬につきましては、基本、期間開始日の前日（営業日）、
+                期間終了時の翌日（営業日）に行うこととします。<br class="hidden md:inline">
+                ただし状況に応じてご相談させていただきます。
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-10 flex justify-center">
+            <div class="space-y-[10px] text-[13px] md:text-[17px] text-[#555] text-left">
+              <p>※通信速度は上り1Mbps、下り4Mbpsとなります。</p>
+              <p>※料金は税別表示です。設備や出張費が別途発生する場合があります。</p>
+              <p>※交通費は含まれておりません。</p>
+              <p>※オペレーターの派遣に係る交通費は別途となります。</p>
+              <p>※オペレーターなしの場合の車両運搬費は別途となります。</p>
+            </div>
+          </div>
+        </div>
+        -->
       </div>
     </section>
 
